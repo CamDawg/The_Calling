@@ -219,7 +219,45 @@ END ELSE BEGIN
 END
 
 // add some black pearls to the game
-EXTEND_TOP    ~%tutu_scripts%irspell.bcs~             ~thecalling/baf/_irspell.baf~ EVALUATE_BUFFER // give sirines a chance to have black pearls (including sil)
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+  SET pearl = 0
+  READ_LONG 0x2bc itm_off
+  READ_LONG 0x2c0 itm_num
+  FOR (index = 0 ; index < itm_num ; ++index) BEGIN 
+    READ_ASCII (itm_off + 0x00 + (index * 0x14)) item
+    PATCH_IF ("%item%" STRING_COMPARE_CASE "%tutu_var%misc36" = 0) BEGIN
+      READ_SHORT (itm_off + 0x0a + (index * 0x14)) quantity
+      READ_LONG  (itm_off + 0x10 + (index * 0x14)) flags
+      PATCH_IF ((quantity < 2) AND ((flags & BIT3) = 0)) BEGIN // only one and droppable
+        SET pearl = 1
+        SET index = itm_num // kill loop
+      END  
+    END
+  END
+  PATCH_IF pearl = 1 BEGIN 
+    READ_LONG 0x2c4 fx_off
+    READ_LONG 0x2c8 fx_num
+    READ_BYTE 0x033 fx_type
+    INSERT_BYTES fx_off (0x30 + (0xd8 * fx_type)) // insert an effect
+    WRITE_SHORT (fx_off        + (0x08 * fx_type)) 146 // cast spell
+    WRITE_BYTE  (fx_off + 0x02 + (0x0a * fx_type))   1 // target: self
+    WRITE_LONG  (fx_off + 0x08 + (0x10 * fx_type))   1 // cast instantly
+    WRITE_BYTE  (fx_off + 0x0c + (0x10 * fx_type))   1 // instant/perm
+    WRITE_BYTE  (fx_off + 0x12 + (0x12 * fx_type)) 100 // prob1
+    WRITE_ASCII (fx_off + 0x14 + (0x14 * fx_type)) ~cdbpearl~
+    WRITE_LONG 0x2c8 (fx_num + 1) // update num effects
+    PATCH_FOR_EACH offset IN 0x2a0 0x2a8 0x2b0 0x2b8 0x2bc BEGIN // update other offsets for new effect
+      READ_LONG offset curr_off
+      PATCH_IF (fx_off <= curr_off) BEGIN
+        WRITE_LONG offset (THIS + (0x30 + (0xd8 * fx_type)))
+      END
+    END
+  END
+  BUT_ONLY  
+    
+COPY ~thecalling/spl/cdbpearl.spl~ ~override~
+  LPF ALTER_EFFECT INT_VAR match_opcode = 112 STR_VAR resource = EVAL ~%tutu_var%misc36~ END
+  
 EXTEND_BOTTOM ~%Lighthouse_BlackAlaricsCave_BCS%.bcs~ ~thecalling/baf/pearl.baf~    EVALUATE_BUFFER // guarantee a black pearl in sil's cave
  
 ACTION_FOR_EACH bam IN cmisc5c cmisc5k cmisc7p imisc5k imisc5z imisc7p BEGIN
