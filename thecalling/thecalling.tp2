@@ -300,8 +300,10 @@ COPY_EXISTING ~%tutu_var%taerom.cre~ ~override~
   BUT_ONLY
 
 // nashkel mines melicamp
+OUTER_SET anim = IDS_OF_SYMBOL (~animate~ ~MAGE_MALE_HUMAN~)
+ACTION_IF (anim < 0) BEGIN OUTER_SET anim = 0x6200 END // failsafe
 COPY_EXISTING ~%tutu_var%melica.cre~ ~override/cdmeli.cre~
-  WRITE_SHORT  0x28 20992 // human animation, not chicken
+  WRITE_LONG  0x28 anim         // human animation, not chicken
   WRITE_ASCII 0x250 ~cdmeli~ #8 // class script
   WRITE_ASCII 0x2cc ~cdmeli~ #8 // dialogue
 
