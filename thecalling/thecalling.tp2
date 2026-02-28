@@ -908,6 +908,12 @@ COMPILE ~thecalling/baf/cd51qm.baf~
 COMPILE ~thecalling/baf/cdgnsen1.baf~ 
         ~thecalling/baf/cdgnsen2.baf~ 
         ~thecalling/baf/cd51alt.baf~ EVALUATE_BUFFER
+        
+ACTION_IF enhanced_edition BEGIN // include blackguards on EEs
+  OUTER_SPRINT blackguard_check ~OR(9) Kit(Player1,Blackguard)~
+END ELSE BEGIN
+  OUTER_SPRINT blackguard_check ~OR(8)~
+END  
 
 EXTEND_BOTTOM ~%GnollStronghold_BCS%.bcs~ ~thecalling/baf/ar5100.baf~         EVALUATE_BUFFER
 EXTEND_TOP    ~%tutu_var%xvart.bcs~       ~thecalling/baf/gnolldestroyer.baf~ EVALUATE_BUFFER // destroys leftover gnolls/xvarts at end of quest
