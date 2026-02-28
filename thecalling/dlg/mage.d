@@ -285,22 +285,21 @@ CHAIN IF ~~ THEN ~%tutu_var%THALAN~ IncantationSucked @1274
 == CDIRIS @1275
 == ~%tutu_var%THALAN~ @1276 = @1277
 == ~%tutu_var%MELICA~ @1278
-== ~%tutu_var%THALAN~ @1279 DO ~SetGlobal("CDBracerQuest","GLOBAL",22)~
+== ~%tutu_var%THALAN~ @1279
 EXIT
 
 CHAIN IF ~~ THEN ~%tutu_var%THALAN~ IncantationPoor @1280
 == CDIRIS @1275
 == ~%tutu_var%THALAN~ @1281 = @1282
 == ~%tutu_var%MELICA~ @1278
-== ~%tutu_var%THALAN~ @1279 DO ~SetGlobal("CDBracerQuest","GLOBAL",22)~
+== ~%tutu_var%THALAN~ @1279
 EXIT
 
 CHAIN IF ~~ THEN ~%tutu_var%THALAN~ IncantationGood @1283
 == CDIRIS @1284
 == ~%tutu_var%MELICA~ @1285
-== ~%tutu_var%THALAN~ @1286 = @1287 = @1288 DO ~SetGlobal("CDBracerQuest","GLOBAL",23)
-                                     GiveItemCreate("cdbracer",LastTalkedToBy(Myself),1,0,0)
-                                     GiveItemCreate("cdpowder",LastTalkedToBy(Myself),1,0,0)~
+== ~%tutu_var%THALAN~ @1286 = @1287 = @1288 DO ~GiveItemCreate("cdbracer",LastTalkedToBy(Myself),1,0,0)
+                                                GiveItemCreate("cdpowder",LastTalkedToBy(Myself),1,0,0)~
 EXIT
 
 /////                                                  \\\\\
@@ -690,10 +689,10 @@ END
 APPEND ~%tutu_var%THALAN~
 
   IF WEIGHT #-1 ~Global("CDBracerQuest","GLOBAL",21)~ THEN BEGIN IncantationFinished SAY @1272 = @1273
-    IF ~~ THEN DO ~AddexperienceParty(1000)~ GOTO IncantationSucked
-    IF ~Global("CDIncantationRight","MYAREA",1)~ THEN DO ~AddexperienceParty(2000)~ GOTO IncantationPoor
-    IF ~Global("CDIncantationRight","MYAREA",2)~ THEN DO ~AddexperienceParty(3000)~ GOTO IncantationGood
-    IF ~Global("CDIncantationRight","MYAREA",3)~ THEN DO ~AddexperienceParty(4000)~ GOTO IncantationGood
+    IF ~~                                        THEN DO ~SetGlobal("CDBracerQuest","GLOBAL",22) AddexperienceParty(1000)~ GOTO IncantationSucked
+    IF ~Global("CDIncantationRight","MYAREA",1)~ THEN DO ~SetGlobal("CDBracerQuest","GLOBAL",22) AddexperienceParty(2000)~ GOTO IncantationPoor
+    IF ~Global("CDIncantationRight","MYAREA",2)~ THEN DO ~SetGlobal("CDBracerQuest","GLOBAL",23) AddexperienceParty(3000)~ GOTO IncantationGood
+    IF ~Global("CDIncantationRight","MYAREA",3)~ THEN DO ~SetGlobal("CDBracerQuest","GLOBAL",23) AddexperienceParty(4000)~ GOTO IncantationGood
   END
 
   IF WEIGHT #-1 ~Global("CDBracerQuest","GLOBAL",12)
