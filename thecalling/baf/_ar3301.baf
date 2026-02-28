@@ -6,7 +6,7 @@ THEN
     CutSceneId(Player1)
     ActionOverride("taerom",MoveToPointNoInterrupt([321.397]))
     Wait(2)
-    CreateVisualEffect("spcrtwpn",[401.348])
+    CreateVisualEffectObject("spcrtwpn","taerom")
     Wait(2)
     Swing()
     Wait(2)
