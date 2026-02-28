@@ -783,6 +783,7 @@ COPY ~thecalling/cre/cd51ch.cre~ ~override~
   PATCH_IF !opp_palette BEGIN // if using color only available with 1pp/EE
     WRITE_BYTE 0x2e 46
   END  
+  ADD_CRE_ITEM ~%bg_rndtre02%~ #0 #0 #0 NONE ~inv~
 
 COPY ~thecalling/cre/cd51gho.cre~ ~override~
   SAY NAME1 @10010
@@ -793,6 +794,7 @@ COPY ~thecalling/cre/cd51go.cre~ ~override~
   SAY NAME1 @10006
   SAY NAME2 @10006
   WRITE_ASCIIE 0x268 ~%tutu_scriptw%tasight~  
+  ADD_CRE_ITEM ~%bg_rndtre04%~ #0 #0 #0 NONE ~inv~
 
 COPY ~thecalling/cre/cd51gs.cre~ ~override~
   SAY NAME1 @10003
@@ -806,11 +808,13 @@ COPY ~thecalling/cre/cd51gs.cre~ ~override~
       WRITE_BYTE 0x31 58
     END                   	   
   END  
+  ADD_CRE_ITEM ~%bg_rndtre02%~ #0 #0 #0 NONE ~inv~
 
 COPY ~thecalling/cre/cd51gw.cre~ ~override~
   SAY NAME1 @10002
   SAY NAME2 @10002
   WRITE_ASCIIE 0x268 ~%tutu_scriptw%tasight~  
+  ADD_CRE_ITEM ~%bg_rndtre02%~ #0 #0 #0 NONE ~inv~
 
 COPY ~thecalling/cre/cd51gz.cre~ ~override~
   SAY NAME1 @10004
@@ -822,6 +826,7 @@ COPY ~thecalling/cre/cd51qm.cre~ ~override~
   SAY NAME2 @10007
   WRITE_ASCIIE 0x258 ~%tutu_var%shout~  
   WRITE_ASCIIE 0x268 ~%tutu_scriptw%tasight~  
+  ADD_CRE_ITEM ~%bg_rndtre04%~ #0 #0 #0 NONE ~inv~
 
 COPY ~thecalling/cre/cd51sol1.cre~ ~override~
      ~thecalling/cre/cd51sol2.cre~ ~override~
@@ -829,12 +834,14 @@ COPY ~thecalling/cre/cd51sol1.cre~ ~override~
   SAY NAME2 @10008
   WRITE_ASCIIE 0x258 ~%tutu_var%shout~  
   WRITE_ASCIIE 0x268 ~%tutu_scripts%eeenemy~  
+  ADD_CRE_ITEM ~%bg_rndtre04%~ #0 #0 #0 NONE ~inv~
 
 COPY ~thecalling/cre/cd51sol3.cre~ ~override~
   SAY NAME1 @10009
   SAY NAME2 @10009
   WRITE_ASCIIE 0x258 ~%tutu_var%shout~  
   WRITE_ASCIIE 0x268 ~%tutu_scripts%eeenemy~   
+  ADD_CRE_ITEM ~%bg_rndtre04%~ #0 #0 #0 NONE ~inv~
 
 COPY_EXISTING ~cd51sol1.cre~ ~override/cd51shop.cre~
   SAY NAME1 @10172
@@ -849,6 +856,7 @@ COPY_EXISTING ~cd51sol1.cre~ ~override/cd51ded%index%.cre~ // dead soldiers
   WRITE_LONG 0x20 (THIS BOR BIT11) // add dead flag
   WRITE_SHORT 0x26 0 // current HP
   WRITE_ASCIIE 0x280 ~cd51ded%index%~ #32 // dv
+  ADD_CRE_ITEM ~%bg_rndtre04%~ #0 #0 #0 NONE ~inv~
     
 END
   
