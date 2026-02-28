@@ -45,5 +45,7 @@ IF
   GlobalGT("CDBracerQuest","GLOBAL",22) // quest over
 THEN
   RESPONSE #100
+    SetInterrupt(FALSE)
+    DialogueInterrupt(FALSE)
     EscapeArea()
 END
