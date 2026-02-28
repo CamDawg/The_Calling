@@ -1,3 +1,17 @@
+IF // randomize halberd on spawn
+  Global("cd_halberd_random","LOCALS",0)
+THEN
+  RESPONSE #33
+    SelectWeaponAbility(SLOT_WEAPON0,0)
+    SetGlobal("cd_halberd_random","LOCALS",1)
+  RESPONSE #33
+    SelectWeaponAbility(SLOT_WEAPON0,1)
+    SetGlobal("cd_halberd_random","LOCALS",1)
+  RESPONSE #33
+    SelectWeaponAbility(SLOT_WEAPON0,2)
+    SetGlobal("cd_halberd_random","LOCALS",1)
+END
+
 IF
   See([PC])
   NumTimesTalkedTo(0)
