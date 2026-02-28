@@ -257,29 +257,29 @@ EXIT
 CHAIN IF ~~ THEN ~%tutu_var%THALAN~ BeginIncantation @1258 = @1259
 == ~%tutu_var%MELICA~ @1260
 END
-  IF ~~ THEN REPLY @1265 GOTO Incantation2
-  IF ~~ THEN REPLY @1266 GOTO Incantation2
-  IF ~~ THEN REPLY @1267 DO ~IncrementGlobal("CDIncantationRight","MYAREA",1)~ GOTO Incantation2
-  IF ~~ THEN REPLY @1268 GOTO Incantation2
-  IF ~~ THEN REPLY @1269 GOTO Incantation2
+  IF ~CheckStatLT(Player1,17,INT)~ THEN REPLY @1265 GOTO Incantation2
+  IF ~~                            THEN REPLY @1266 GOTO Incantation2
+  IF ~~                            THEN REPLY @1267 DO ~IncrementGlobal("CDIncantationRight","MYAREA",1)~ GOTO Incantation2
+  IF ~CheckStatLT(Player1,17,WIS)~ THEN REPLY @1268 GOTO Incantation2
+  IF ~~                            THEN REPLY @1269 GOTO Incantation2
 
 CHAIN IF ~~ THEN ~%tutu_var%THALAN~ Incantation2 @1261
 == ~%tutu_var%MELICA~ @1262
 END
-  IF ~~ THEN REPLY @1265 GOTO Incantation3
-  IF ~~ THEN REPLY @1266 GOTO Incantation3
-  IF ~~ THEN REPLY @1267 GOTO Incantation3
-  IF ~~ THEN REPLY @1268 DO ~IncrementGlobal("CDIncantationRight","MYAREA",1)~ GOTO Incantation3
-  IF ~~ THEN REPLY @1269 GOTO Incantation3
+  IF ~~                            THEN REPLY @1265 GOTO Incantation3
+  IF ~CheckStatLT(Player1,17,WIS)~ THEN REPLY @1266 GOTO Incantation3
+  IF ~CheckStatLT(Player1,17,INT)~ THEN REPLY @1267 GOTO Incantation3
+  IF ~~                            THEN REPLY @1268 DO ~IncrementGlobal("CDIncantationRight","MYAREA",1)~ GOTO Incantation3
+  IF ~~                            THEN REPLY @1269 GOTO Incantation3
 
 CHAIN IF ~~ THEN ~%tutu_var%THALAN~ Incantation3 @1263
 == ~%tutu_var%MELICA~ @1264
 END
-  IF ~~ THEN REPLY @1265 DO ~IncrementGlobal("CDIncantationRight","MYAREA",1)~ GOTO Behold
-  IF ~~ THEN REPLY @1266 GOTO Behold
-  IF ~~ THEN REPLY @1267 GOTO Behold
-  IF ~~ THEN REPLY @1268 GOTO Behold
-  IF ~~ THEN REPLY @1269 GOTO Behold
+  IF ~~                            THEN REPLY @1265 DO ~IncrementGlobal("CDIncantationRight","MYAREA",1)~ GOTO Behold
+  IF ~~                            THEN REPLY @1266 GOTO Behold
+  IF ~CheckStatLT(Player1,17,WIS)~ THEN REPLY @1267 GOTO Behold
+  IF ~~                            THEN REPLY @1268 GOTO Behold
+  IF ~CheckStatLT(Player1,17,INT)~ THEN REPLY @1269 GOTO Behold
 
 CHAIN IF ~~ THEN ~%tutu_var%THALAN~ IncantationSucked @1274
 == CDIRIS @1275
