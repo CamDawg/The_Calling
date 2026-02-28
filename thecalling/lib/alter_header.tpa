@@ -188,20 +188,21 @@ DEFINE_PATCH_FUNCTION ALTER_HEADER
           icon            = "SAME"
 BEGIN
 
-  READ_ASCII 0x00 sig (3)
+  READ_ASCII 0x04 version (4)
   SET abil_length = 0
   SET proceed = 0
   SET alter = 0
-  PATCH_IF ("%sig%" STRING_COMPARE_CASE "ITM" = 0) BEGIN
+  PATCH_IF ("%SOURCE_EXT%" STRING_COMPARE_CASE "ITM" = 0) BEGIN
     SET abil_length = 0x38
+    SET pro_off = 0x2a
   END ELSE
-  PATCH_IF ("%sig%" STRING_COMPARE_CASE "SPL" = 0) BEGIN
+  PATCH_IF ("%SOURCE_EXT%" STRING_COMPARE_CASE "SPL" = 0) BEGIN
     SET abil_length = 0x28
+    SET pro_off = 0x26
   END
   PATCH_IF abil_length = 0 BEGIN
     PATCH_WARN ~WARNING: file type not recognized on %SOURCE_FILE% for ALTER_HEADER macro.~
   END ELSE BEGIN
-    SET pro_off = abil_length = 0x38 ? 0x2a : 0x26
     READ_LONG   0x64 abil_off
     READ_SHORT  0x68 abil_num
     FOR (index = 0 ; index < abil_num ; ++index) BEGIN

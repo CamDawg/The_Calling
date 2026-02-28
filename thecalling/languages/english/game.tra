@@ -39,13 +39,15 @@ STATISTICS:
 
 STATISTICS:
 
-Disables spellcasting~
+Disables spellcasting
+Special:  can only be removed by a 'remove curse' spell~
   @123 = ~The Imbecile's Amulet~
   @124 = ~Amulets such as these are very popular amongst unscrupulous merchants. These items appear to be ornate, expensive amulets and are often given as gifts to potential clients, rivals, or other potential business contacts. They're designed merely to dull the wit, without being unduly noticeable, enabling the merchant to press their advantage during complex negotiations.
 
 STATISTICS:
 
-Reduces intelligence, wisdom, and charisma by two while worn~
+Reduces intelligence, wisdom, and charisma by two while worn
+Special:  can only be removed by a 'remove curse' spell~
   @125 = ~Black Pearl~
   @126 = ~White Pearl~
   @127 = ~Enshelled Black Pearl~ // Black pearl from Balduran's Seatower, @546 in that mod
@@ -385,6 +387,8 @@ Reduces intelligence, wisdom, and charisma by two while worn~
 @1330 = ~Is there anything else?~
 @1331 = ~This is a magnificent pearl, but I'm afraid it's too unseasoned for our purposes. I would be pleased if you found another.~
 @1332 = ~Black pearls need to age a bit before they're ready to be utilized in such a fashion.~
+@1333 = ~However, we will have to wait for Melicamp's return before we begin the divination.~
+@1334 = ~Speak of the devil and he shall appear. Let us begin.~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\

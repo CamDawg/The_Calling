@@ -354,6 +354,10 @@ COPY_EXISTING ~%tutu_var%minern.cre~ ~override/cdminer1.cre~
   WRITE_ASCIIE 0x250 ~%tutu_var%shout~  #8 // class script
   WRITE_ASCIIE 0x280 ~%DEST_RES%~      #32 // DV
   WRITE_ASCIIE 0x2cc ~%DEST_RES%~       #8 // dialogue
+  PATCH_IF (("%DEST_RES%" STRING_COMPARE_CASE "cdiris" = 0) OR 
+            ("%DEST_RES%" STRING_COMPARE_CASE "cdlargo" = 0)) BEGIN
+    WRITE_ASCII 0x258 ~~ #8 // blank runenemy in race script for halflings
+  END   
 
 COPY_EXISTING ~cdminer1.cre~ ~override~
   SAY 0x08 @103

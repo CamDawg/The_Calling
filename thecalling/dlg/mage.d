@@ -4,14 +4,14 @@
 
 // all the miners in nashkel mines 1 leave after speaking
 // we need 'em to stick around, so...
-REPLACE_ACTION_TEXT ~%tutu_var%BOB~    ~EscapeArea()~ ~~
-REPLACE_ACTION_TEXT ~%tutu_var%CORY~   ~EscapeArea()~ ~~
-REPLACE_ACTION_TEXT ~%tutu_var%DILOK~  ~EscapeArea()~ ~~
-REPLACE_ACTION_TEXT ~%tutu_var%DINK~   ~EscapeArea()~ ~~
-REPLACE_ACTION_TEXT ~%tutu_var%GORD~   ~EscapeArea()~ ~~
-REPLACE_ACTION_TEXT ~%tutu_var%LESLEY~ ~EscapeArea()~ ~~
-REPLACE_ACTION_TEXT ~%tutu_var%MARVIN~ ~EscapeArea()~ ~~
-REPLACE_ACTION_TEXT ~%tutu_var%RUFFIE~ ~EscapeArea()~ ~~
+REPLACE_ACTION_TEXT ~%tutu_var%BOB~    ~\(EscapeArea()\|EscapeAreaDestroy([0-9]+)\)~ ~~
+REPLACE_ACTION_TEXT ~%tutu_var%CORY~   ~\(EscapeArea()\|EscapeAreaDestroy([0-9]+)\)~ ~~
+REPLACE_ACTION_TEXT ~%tutu_var%DILOK~  ~\(EscapeArea()\|EscapeAreaDestroy([0-9]+)\)~ ~~
+REPLACE_ACTION_TEXT ~%tutu_var%DINK~   ~\(EscapeArea()\|EscapeAreaDestroy([0-9]+)\)~ ~~
+REPLACE_ACTION_TEXT ~%tutu_var%GORD~   ~\(EscapeArea()\|EscapeAreaDestroy([0-9]+)\)~ ~~
+REPLACE_ACTION_TEXT ~%tutu_var%LESLEY~ ~\(EscapeArea()\|EscapeAreaDestroy([0-9]+)\)~ ~~
+REPLACE_ACTION_TEXT ~%tutu_var%MARVIN~ ~\(EscapeArea()\|EscapeAreaDestroy([0-9]+)\)~ ~~
+REPLACE_ACTION_TEXT ~%tutu_var%RUFFIE~ ~\(EscapeArea()\|EscapeAreaDestroy([0-9]+)\)~ ~~
 
 // change branching on bob so questions can be asked
 EXTEND_BOTTOM ~%tutu_var%BOB~ 0
@@ -334,9 +334,7 @@ APPEND CDLARGO
   END
   
   IF ~~ THEN BEGIN OuttaHere SAY @1222
-    IF ~~ THEN DO ~ActionOverride("cdiris",EscapeAreaMove("%Gullykin_Winery_L1%",311,230,12))
-                   SetGlobal("CDBracerQuest","GLOBAL",80)
-                   EscapeAreaMove("%Gullykin_Winery_L1%",388,262,6)~ EXIT
+    IF ~~ THEN DO ~SetGlobal("CDBracerQuest","GLOBAL",80)~ EXIT
   END
   
   IF ~~ THEN BEGIN ExtortionThreat SAY @1223
@@ -369,9 +367,7 @@ APPEND CDLARGO
   END
   
   IF ~~ THEN BEGIN HighHedge SAY @1237
-    IF ~~ THEN DO ~ActionOverride("cdiris",EscapeAreaMove("%HighHedge_ThalanthyrsAbode%",320,234,4))
-                   SetGlobal("CDBracerQuest","GLOBAL",19)
-                   EscapeAreaMove("%HighHedge_ThalanthyrsAbode%",384,225,4)~ EXIT
+    IF ~~ THEN DO ~SetGlobal("CDBracerQuest","GLOBAL",19)~ EXIT
   END
   
   IF ~~ THEN BEGIN Mage2 SAY @1238
@@ -701,9 +697,22 @@ APPEND ~%tutu_var%THALAN~
   END
 
   IF WEIGHT #-1 ~Global("CDBracerQuest","GLOBAL",12)
-                 PartyHasItem("cddevice")~ THEN BEGIN HeresDevice SAY @1189
+                 PartyHasItem("cddevice")
+                 Global("CDDeviceBeforeMeli","GLOBAL",2)~ THEN BEGIN HeresDevice SAY @1334
     IF ~~ THEN DO ~TakePartyItem("cddevice")
-                  DestroyItem("cddevice")~ GOTO StartDiviningAlready
+                   DestroyItem("cddevice")
+                   SetGlobal("CDDeviceBeforeMeli","GLOBAL",3)~ GOTO StartDiviningAlready
+  END
+
+  IF WEIGHT #-1 ~Global("CDBracerQuest","GLOBAL",12)
+                 PartyHasItem("cddevice")~ THEN BEGIN HeresDevice SAY @1189
+    IF ~~ THEN GOTO DivinationWaitForMeli
+    IF ~InMyArea("cdmeli")~ THEN DO ~TakePartyItem("cddevice")
+                                     DestroyItem("cddevice")~ GOTO StartDiviningAlready
+  END
+
+  IF ~~ THEN BEGIN DivinationWaitForMeli SAY @1333
+    IF ~~ THEN DO ~SetGlobal("CDDeviceBeforeMeli","GLOBAL",1)~ EXIT // force timer expiration immediately
   END
   
   IF ~~ THEN BEGIN StartDiviningAlready SAY @1190 = @1191

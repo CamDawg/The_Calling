@@ -24,3 +24,26 @@ THEN
   RESPONSE #100
     StartDialogueNoSet("alvahe")
 END
+
+IF 
+  Global("CDBracerQuest","GLOBAL",19)
+  AreaCheck("%Gullykin_House1_L1%")
+THEN
+  RESPONSE #100
+    EscapeAreaMove("%HighHedge_ThalanthyrsAbode%",384,225,4)
+END
+
+IF 
+  Global("CDBracerQuest","GLOBAL",80)
+  AreaCheck("%Gullykin_House1_L1%")
+THEN
+  RESPONSE #100
+    EscapeAreaMove("%Gullykin_Winery_L1%",388,262,6)
+END
+
+IF 
+  GlobalGT("CDBracerQuest","GLOBAL",22) // quest over
+THEN
+  RESPONSE #100
+    EscapeArea()
+END
