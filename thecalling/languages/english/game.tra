@@ -496,11 +496,11 @@ You were given this cloak as a token of trust and gratitude for securing the Gno
 
 STATISTICS:
 
-STATISTICS:
-
-Armor Class:  +2 bonus
-Saving Throw:  +2 bonus
-Charisma:  Set to 19 (fighters only)
+Armor Class:  +1 bonus
+Saving Throw:  +1 bonus
+THAC0: +1 vs. fighters, monks, paladins, rangers
+Damage: +1 vs. fighters, monks, paladins, rangers
+Charisma:  Once per day, add 1d4 Charisma for ten turns (fighters only)
 Weight:  3~
 @10031 = ~Gnoll's Ritual Book~
 @10032 = ~This book describes rituals: some to tame the natural energy and some to please Yeenoghu, the Beast of Butchery. One ritual is especially morbid, describing the burning of human skulls.~

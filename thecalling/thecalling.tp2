@@ -978,6 +978,7 @@ COPY ~thecalling/itm/cd51boo.itm~ ~override~
   SAY NAME2 @10031
   SAY DESC @10032
 
+APPEND ~itemexcl.2da~ ~cd51cha 1~
 COPY ~thecalling/itm/cd51cha.itm~ ~override~
   SAY NAME1 #214
   SAY NAME2 @10015
@@ -1007,14 +1008,11 @@ COPY ~thecalling/itm/cd51key.itm~ ~override~
   SAY NAME2 @10038
   SAY DESC @10039
 
+APPEND ~itemexcl.2da~ ~cd51rew 1~
 COPY ~thecalling/itm/cd51rew%enhanced_edition%.itm~ ~override/cd51rew.itm~
   SAY NAME1 #12004
   SAY NAME2 @10029
-  PATCH_IF enhanced_edition BEGIN
-    SAY DESC @10030
-  END ELSE BEGIN  
-    SAY DESC @10031
-  END  
+  SAY DESC @10030
 
 COPY ~thecalling/itm/cd51sec.itm~ ~override~
   SAY NAME1 @10035
@@ -1238,11 +1236,12 @@ COPY ~thecalling/itm/cd23bra.itm~ ~override~
   SAY NAME1 #6341
   SAY NAME2 @70011
   SAY DESC @70012
-  
+
+ACTION_IF game_is_bgee BEGIN OUTER_SET kat_name = 26711 END ELSE BEGIN OUTER_SET kat_name = 7523 END
 ACTION_IF enhanced_edition BEGIN 
 
   COPY ~thecalling/itm/cd23kat.itm~ ~override~
-    SAY NAME1 #26711
+    WRITE_LONG NAME1 kat_name
     SAY NAME2 @70013
     SAY DESC @70014
     
@@ -1252,7 +1251,7 @@ ACTION_IF enhanced_edition BEGIN
 END ELSE BEGIN
 
   COPY ~thecalling/itm/cd23kat_orig.itm~ ~override/cd23kat.itm~
-    SAY NAME1 #26711
+    WRITE_LONG NAME1 kat_name
     SAY NAME2 @70013
     SAY DESC @70014
     
