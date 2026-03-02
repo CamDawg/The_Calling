@@ -463,9 +463,9 @@ COPY ~thecalling/bam/cd51amu%enhanced_edition%.bam~ ~override/cd51amu.bam~ // ic
      ~thecalling/eff/cd51rew%enhanced_edition%.eff~ ~override/cd51rew.eff~ // provides fighter-only 19 CHR for Cloak of the Regent-Warrior
 
 COPY ~thecalling/sto/cd51shop.sto~ ~override~
-  SAY 0x1c @10172
+  SAY 0x0c @10172
   PATCH_IF tutu_gen BEGIN // adjust tutu resource names
-    LPF tutuize_items INT_VAR item_number = (LONG_AT 0x34) item_offset = (LONG_AT 0x38) item_length = 0x1c END
+    LPF tutuize_items INT_VAR item_number = (LONG_AT 0x38) item_offset = (LONG_AT 0x34) item_length = 0x1c END
   END  
 
 /////                                                  \\\\\
