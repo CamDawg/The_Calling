@@ -1,6 +1,6 @@
 IF
 	Global("DMWWNoKillKaishas","GLOBAL",1)
-	Gender(Player1,MALE)
+	%del_match%
 THEN
 	RESPONSE #100
 		ActionOverride("maralee",EscapeArea())
@@ -13,7 +13,7 @@ END
 
 IF
 	Global("DMWWNoKillKaishas","GLOBAL",1)
-	Gender(Player1,FEMALE)
+	%dur_match%
 THEN
 	RESPONSE #100
 		ActionOverride("maralee",EscapeArea())

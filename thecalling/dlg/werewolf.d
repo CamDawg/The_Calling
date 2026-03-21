@@ -104,13 +104,13 @@ SOLVED_JOURNAL @21614 EXIT END
 
 IF ~~ THEN BEGIN youshameme
 SAY @21640
-IF ~Gender(Player1,Female)~ THEN DO
+IF ~%dur_match%~ THEN DO
 ~ClearAllActions()
 SetGlobal("DMWWKaishasChat","GLOBAL",1)
 CreateCreature("%tutu_var%durlyl2",[3541.2782],0)
 StartCutSceneMode()
 StartCutScene("dw#kcut1")~ EXIT
-IF ~Gender(Player1,Male)~ THEN DO
+IF ~%del_match%~ THEN DO
 ~ClearAllActions()
 SetGlobal("DMWWKaishasChat","GLOBAL",1)
 CreateCreature("%tutu_var%delain2",[3541.2782],0)
@@ -125,13 +125,13 @@ SOLVED_JOURNAL @21614 EXIT END
 
 IF ~~ THEN BEGIN credit
 SAY @21629
-IF ~Gender(Player1,Female)~ THEN DO
+IF ~%dur_match%~ THEN DO
 ~ClearAllActions()
 SetGlobal("DMWWKaishasChat","GLOBAL",1)
 CreateCreature("%tutu_var%durlyl2",[3541.2782],0)
 StartCutSceneMode()
 StartCutScene("dw#kcut1")~ EXIT
-IF ~Gender(Player1,Male)~ THEN DO
+IF ~%del_match%~ THEN DO
 ~ClearAllActions()
 SetGlobal("DMWWKaishasChat","GLOBAL",1)
 CreateCreature("%tutu_var%delain2",[3541.2782],0)
@@ -163,13 +163,13 @@ StartCutScene("dw#kcut3")~
 EXIT
 
 CHAIN
-IF WEIGHT #-999 ~Global("DMWWKaishasChat","GLOBAL",1)Gender(Player1,Male)~ THEN ~%tutu_var%marale2~ okaythen1
+IF WEIGHT #-999 ~Global("DMWWKaishasChat","GLOBAL",1)%del_match%~ THEN ~%tutu_var%marale2~ okaythen1
 @21632 == %tutu_var%kaish2 @21633 = @21634 == %tutu_var%marale2 @21635 == %tutu_scriptd%elainy2 @21636
 DO ~SetGlobal("DMWWNoKillKaishas","GLOBAL",1)~
 EXIT
 
 CHAIN
-IF WEIGHT #-999 ~Global("DMWWKaishasChat","GLOBAL",1)Gender(Player1,Female)~ THEN ~%tutu_var%marale2~ okaythen2
+IF WEIGHT #-999 ~Global("DMWWKaishasChat","GLOBAL",1)%dur_match%~ THEN ~%tutu_var%marale2~ okaythen2
 @21632 == %tutu_var%kaish2 @21633 = @21634 == %tutu_var%marale2 @21635 == %tutu_scriptd%urlyle2 @21636
 DO ~SetGlobal("DMWWNoKillKaishas","GLOBAL",1)~
 EXIT

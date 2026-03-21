@@ -1491,3 +1491,12 @@ Weight: 0~
 @80149 = ~Good job. And as I promissed, I've got something for you. Five hundred an a little something that someone like you can find pretty useful.~
 @80150 = ~I must say that whoever you're looking for, that someone is in quite some trouble. And don't bother asking me if I heard you're looking for someone. Half of this city is looking for someone or something, and the other half is running from something. That's called life.~
 
+// this block is straight text replacements for existing durlyle/delainy lines. Any alterations here are for where the
+// dialogue assumes the gender of player1. Numbers at the end are the original bg/bgee string references
+
+@90001 = ~Be not so formal, "m'lady." My name is Delainy, and I am pleasured to meet ye.~ // 22008
+@90002 = ~You need not honor with formality, "m'lord." I am Durlyle, and I am pleasured to meet ye.~ // 22382
+@90003 = ~Please return the cloak to us. I will be very grateful of your kindness. You look a kind <MANWOMAN>.~ // 22453
+@90004 = ~You wish to listen while I speak? There are few of the village that take an interest in history, and I delight in the telling. None are very clear, I fear. We were not concerned with records when first we came. They are... embellished, though with good intent, I am sure. You are welcome to stand a while by me... if you wish, good <MANWOMAN>.~ // 22487
+@90005 = ~It would seem the others were right about outsiders after all. You will not escape this island home, m'lord!~ // 21697
+

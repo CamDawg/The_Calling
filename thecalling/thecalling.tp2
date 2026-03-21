@@ -1472,6 +1472,51 @@ EXTEND_BOTTOM ~baldur.bcs~ ~thecalling/baf/cheat2.baf~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////                                                  \\\\\
+///// Same-sex Durlyle/Delainy                         \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @90000 DESIGNATED 90
+GROUP @9
+REQUIRE_PREDICATE ("%LANGUAGE%" STRING_COMPARE_CASE "english" = 0) @5 // skip if translation doesn't exist
+REQUIRE_PREDICATE GAME_IS ~bgt bgee tutu_totsc eet~ @2 // totsc required
+LABEL ~cd_the_calling_yaoi_yuri_ahead~
+
+COPY_EXISTING ~%IsleofBalduranS_BCS%.bcs~ ~override~ // swap gender triggers for spawns
+  DECOMPILE_AND_PATCH BEGIN 
+    REPLACE_TEXTUALLY ~Gender(Player1,MALE)~   ~Gender(Player1,TEMP)~
+    REPLACE_TEXTUALLY ~Gender(Player1,FEMALE)~ ~Gender(Player1,MALE)~
+    REPLACE_TEXTUALLY ~Gender(Player1,TEMP)~   ~Gender(Player1,FEMALE)~
+  END
+  BUT_ONLY
+
+// OK, so why are we doing these weird decompiles instead of something sensible like STRING_SETs?
+// the strings to be replaced float on Tutu/BGT so this is the easiest method that doesn't generate
+// a ton of stuff for the translators
+COPY_EXISTING ~%tutu_scriptd%elainy1.dlg~ ~override~
+  DECOMPILE_AND_PATCH BEGIN 
+    REPLACE_TEXTUALLY "\(THEN BEGIN 1[%LNL%%MNL%%WNL% %TAB%]+SAY\) #[0-9]+" ~\1 @90001~ // state 1 in delainy1
+  END
+  BUT_ONLY
+  
+COPY_EXISTING ~%tutu_scriptd%urlyle1.dlg~ ~override~
+  DECOMPILE_AND_PATCH BEGIN 
+    REPLACE_TEXTUALLY "\(THEN BEGIN 1[%LNL%%MNL%%WNL% %TAB%]+SAY\) #[0-9]+" ~\1 @90002~  // state 1 in durlyle1
+    REPLACE_TEXTUALLY "\(THEN BEGIN 22[%LNL%%MNL%%WNL% %TAB%]+SAY\) #[0-9]+" ~\1 @90003~ // state 22
+    REPLACE_TEXTUALLY "\(THEN BEGIN 34[%LNL%%MNL%%WNL% %TAB%]+SAY\) #[0-9]+" ~\1 @90004~ // state 34
+  END
+  BUT_ONLY
+
+COPY_EXISTING ~%tutu_scriptd%urlyle2.dlg~ ~override~
+  DECOMPILE_AND_PATCH BEGIN 
+    REPLACE_TEXTUALLY "\(THEN BEGIN 0[%LNL%%MNL%%WNL% %TAB%]+SAY\) #[0-9]+" ~\1 @90005~ // state 0 in durlyle2
+  END
+  BUT_ONLY
+  
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
 ///// Peaceful Kaishas resolution                      \\\\\
 /////                                                  \\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -1489,6 +1534,14 @@ REQUIRE_PREDICATE (("%LANGUAGE%" STRING_COMPARE_CASE "english" = 0) OR
 REQUIRE_PREDICATE NOT MOD_IS_INSTALLED ~stratagems/setup-stratagems.tp2~ ~7060~ @1 // skip if already installed by scs
 REQUIRE_PREDICATE GAME_IS ~bgt bgee tutu_totsc eet~ @2 // totsc required
 LABEL ~cd_the_calling_peaceful_kaishas_resolution~
+
+ACTION_IF MOD_IS_INSTALLED ~thecalling.tp2~ ~90~ BEGIN // same-sex del/dur component
+  OUTER_SPRINT del_match ~Gender(Player1,FEMALE)~
+  OUTER_SPRINT dur_match ~Gender(Player1,MALE)~
+END ELSE BEGIN  
+  OUTER_SPRINT del_match ~Gender(Player1,MALE)~
+  OUTER_SPRINT dur_match ~Gender(Player1,FEMALE)~
+END 
 
 EXTEND_BOTTOM ~%tutu_var%kaisha.bcs~      ~thecalling/baf/kaishas.baf~ EVALUATE_BUFFER USING ~%tra_location%/%LANGUAGE%/werewolf.tra~
 EXTEND_TOP    ~%IsleofBalduranN_BCS%.bcs~ ~thecalling/baf/werewolfadd.baf~ EVALUATE_BUFFER
