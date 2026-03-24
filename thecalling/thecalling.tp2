@@ -522,8 +522,29 @@ COPY_EXISTING ~cd5106.are~ ~override~
     LPF ALTER_AREA_ACTOR STR_VAR actor_name = "Actor 1" cre_file = EVAL ~%tutu_var%flind~ END
     LPF ALTER_AREA_REGION STR_VAR region_name = Trap1 region_script = EVAL ~%tutu_var%gtar8~ END
   END  
+  
+//////////////////////////////
+// Gnoll Stronghold night maps
+//////////////////////////////
+COPY //~thecalling/tilesets/BG5100sr.bmp~  ~override/%GnollStronghold%sr.bmp~ // stronghold searchmap; give new entrances a little more walking room
+     ~thecalling/tilesets/BG5100LN.bmp~  ~override/%GnollStronghold%LN.bmp~
 
-COPY ~thecalling/tilesets/ar5100sr.bmp~  ~override/%GnollStronghold%sr.bmp~ // stronghold searchmap; give new entrances a little more walking room
+INCLUDE ~%MOD_FOLDER%/lib/alter_searchmap.tpa~
+LAF ALTER_SEARCHMAP
+	STR_VAR
+	path_to_2da_file = ~thecalling/tilesets/BG5100SR_changes.2da~ // full path to the *changes.2da file containing your icons, e.g. ~mymod/bam/AR3700SR_changes_ee.2da~
+	areaname = EVAL ~%GnollStronghold%~ // area name, e.g. ~AR3700~
+	output_path	= EVAL ~override~ // output directory
+END
+
+COPY ~%MOD_FOLDER%/tilesets/ysriv~ ~override~ // overlay night animation
+
+COPY ~thecalling/are/old/BG5100N.wed~ ~override/%GnollStronghold%N.wed~ // wed
+  REPLACE_TEXTUALLY ~BG5100N~ ~%GnollStronghold%N~
+ACTION_IF GAME_IS ~tutu_totsc~ BEGIN
+  COPY_EXISTING ~%GnollStronghold%.wed~ ~override~
+    WRITE_ASCIIE 0x24 ~%GnollStronghold%~ #8
+END
 
 ACTION_IF enhanced_edition BEGIN
 
@@ -544,26 +565,82 @@ ACTION_IF enhanced_edition BEGIN
 	{"cd5109", "%cd5109_descript%"},~
   
   COPY ~thecalling/tilesets/10~            ~override~                       // new area tilesets/pvrz
-       ~thecalling/tilesets/old/ar5100.tis~ ~override/%GnollStronghold%.tis~ // updated gnoll stronghold
-       
+       ~thecalling/tilesets/old/BG5100.tis~ ~override/%GnollStronghold%.tis~ // updated gnoll stronghold
+       ~thecalling/tilesets/old/BG5100N.tis~ ~override/%GnollStronghold%N.tis~
+  
+  ACTION_IF GAME_IS ~bgee~ BEGIN
+    ACTION_BASH_FOR ~%MOD_FOLDER%/tilesets/old~ ~.*\.pvrz$~ BEGIN
+      OUTER_PATCH_SAVE newname ~%BASH_FOR_RES%~ BEGIN
+        REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH ~B~ ~A~
+      END
+      COPY ~%BASH_FOR_FILESPEC%~ ~override/%newname%.pvrz~
+    END
+  END ELSE BEGIN
+    ACTION_BASH_FOR ~%MOD_FOLDER%/tilesets/old~ ~.*\.pvrz$~ BEGIN
+      COPY ~%BASH_FOR_FILESPEC%~ ~override~
+	END
+  END
+  /*
   ACTION_IF game_is_bgee BEGIN OUTER_SPRINT prefix ~a~ END ELSE BEGIN OUTER_SPRINT prefix ~b~ END
   OUTER_FOR (index = 510000; index < 510022 ; ++index) BEGIN
     COPY ~thecalling/tilesets/old/a%index%.pvrz~ ~override/%prefix%%index%.pvrz~
-  END  
+  END
+  */
   
 END ELSE BEGIN
 
   INCLUDE ~thecalling/lib/a7_tools.tpa~ // tile2ee
   LAF HANDLE_TILE2EE INT_VAR quality_v1 = 9 STR_VAR input_path = ~thecalling/tilesets/10~ END // new area tilesets/pvrz
   
-  COPY ~thecalling/tilesets/ar5100.mos~     ~override/%GnollStronghold%.mos~ // minimap 
+  COPY ~thecalling/tilesets/bg5100.mos~     ~override/%GnollStronghold%.mos~ // minimap 
+  COPY ~thecalling/tilesets/bg5100N.mos~     ~override/%GnollStronghold%N.mos~ // minimap 
   
-  LAF HANDLE_TILESETS STR_VAR input_path = EVAL ~thecalling/tiz/%tutorbgt%~ END
-
+//  LAF HANDLE_TILESETS STR_VAR input_path = EVAL ~thecalling/tiz/%tutorbgt%~ END
+  ACTION_IF NOT FILE_EXISTS ~%MOD_FOLDER%/tbc/BG5100.tis~ BEGIN
+    LAF HANDLE_TILECONV
+	  STR_VAR
+	    input_path    = EVAL ~%MOD_FOLDER%/tbc~
+	    output_path	  = EVAL ~%MOD_FOLDER%/tbc~
+    END
+  END
+  COPY_LARGE ~%MOD_FOLDER%/tbc/BG5100.tis~ ~override/%GnollStronghold%.tis~
+  COPY_LARGE ~%MOD_FOLDER%/tbc/BG5100N.tis~ ~override/%GnollStronghold%N.tis~
 END
 
+// creature sleeps at night
+ACTION_IF GAME_IS ~tutu_totsc~ BEGIN
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY turn_off_at_night BEGIN // turn off sleeping animals at night
+    _bird => 1
+    _eagle => 1
+    _vultur => 1
+    _seagul => 1
+    _butrfly => 1
+  END
+END ELSE BEGIN
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY turn_off_at_night BEGIN // turn off sleeping animals at night
+  	bird => 1
+  	eagle => 1
+  	vultur => 1
+  	seagul => 1
+  	butrfly => 1
+  END
+END
 COPY_EXISTING ~%GnollStronghold%.are~ ~override~ // adding entrances to main gnoll stronghold map
-  //DUNGEON
+  // turn the area in an extended nightmap
+  PATCH_IF SOURCE_SIZE > 0x11b BEGIN // Valid size check
+    PATCH_IF (((BYTE_AT 0x48) << 7) & BIT7) BEGIN // Toggle only outdoor areas
+      WRITE_BYTE 0x48 (THIS | BIT6 | BIT1 | BIT2) // Toggle extended night flag (BIT6) and day/night flag (BIT1) and weather flag (BIT2)
+	  GET_OFFSET_ARRAY actors 0x54 4 0x58 2 0 0 0x110		// turn off creatures at night time
+      PHP_EACH actors AS i => off BEGIN
+	    READ_ASCII off + 0x80 cre_resref
+	    TO_LOWER cre_resref
+	    PATCH_IF VARIABLE_IS_SET $turn_off_at_night("%cre_resref%") BEGIN
+	      WRITE_LONG off + 0x40 0x1ffe0 // 05:30 to 17:29
+	    END
+	  END
+	END
+  END
+  //DUNGEON	
   LPF fj_are_structure INT_VAR
     fj_type = 2 // travel
     fj_box_left = 2977
