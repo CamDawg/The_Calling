@@ -492,6 +492,7 @@ COPY ~thecalling/sto/cd51shop.sto~ ~override~
 /////                                                  \\\\\
 
 COPY ~thecalling/are/10~ ~override~ // bmp, mos, wed
+COPY ~thecalling/bam/flame2n.bam~ ~override~ // a small candle animation for CD5105
 
 // new areas that connect to the gnoll stronghold need to use the platform-specific resref
 COPY ~thecalling/are/cd5104.are~ ~override~
