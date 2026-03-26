@@ -23,6 +23,7 @@ set ico_folder=%mod_folder%\style
 set audio_folder=%mod_folder%\audio
 set tispack_folder=%mod_folder%\tiz
 set tile2ee_folder=%mod_folder%\tools\tile2ee
+set tileconv_folder=%mod_folder%\tools\tileconv
 set iconv_folder=%mod_folder%\languages\iconv
 set mod_readme=https://gibberlings3.github.io/Documentation/readmes/readme-%mod_folder%.html
 

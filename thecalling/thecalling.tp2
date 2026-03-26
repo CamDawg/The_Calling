@@ -52,23 +52,13 @@ ALWAYS
 
     END
 	
-	// creature sleeps at night
-    ACTION_IF tutu_gen BEGIN
-      ACTION_DEFINE_ASSOCIATIVE_ARRAY turn_off_at_night BEGIN // turn off sleeping animals at night
-        _bird => 1
-        _eagle => 1
-        _vultur => 1
-        _seagul => 1
-        _butrfly => 1
-      END
-    END ELSE BEGIN
-      ACTION_DEFINE_ASSOCIATIVE_ARRAY turn_off_at_night BEGIN // turn off sleeping animals at night
-      	bird => 1
-      	eagle => 1
-      	vultur => 1
-      	seagul => 1
-      	butrfly => 1
-      END
+	  // creature sleeps at night
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY turn_off_at_night BEGIN // turn off sleeping animals at night
+      ~%tutu_var%bird~    => 1
+      ~%tutu_var%eagle~   => 1
+      ~%tutu_var%vultur~  => 1
+      ~%tutu_var%seagul~  => 1
+      ~%tutu_var%butrfly~ => 1
     END
 
   END
