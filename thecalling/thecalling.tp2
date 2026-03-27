@@ -670,15 +670,11 @@ END ELSE BEGIN
   COPY ~thecalling/tilesets/bg5100N.mos~     ~override/%GnollStronghold%N.mos~ // minimap 
   
 //  LAF HANDLE_TILESETS STR_VAR input_path = EVAL ~thecalling/tiz/%tutorbgt%~ END
-  ACTION_IF NOT FILE_EXISTS ~%MOD_FOLDER%/tbc/BG5100.tis~ BEGIN
     LAF HANDLE_TILECONV
 	  STR_VAR
 	    input_path    = EVAL ~%MOD_FOLDER%/tbc~
-	    output_path	  = EVAL ~%MOD_FOLDER%/tbc~
+	    output_path	  = EVAL ~override~
     END
-  END
-  COPY_LARGE ~%MOD_FOLDER%/tbc/BG5100.tis~ ~override/%GnollStronghold_BCS%.tis~
-  COPY_LARGE ~%MOD_FOLDER%/tbc/BG5100N.tis~ ~override/%GnollStronghold_BCS%N.tis~
 END
 
 COPY_EXISTING ~%GnollStronghold%.are~ ~override~ // adding entrances to main gnoll stronghold map
