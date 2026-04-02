@@ -1970,3 +1970,88 @@ ACTION_IF ((FILE_EXISTS_IN_GAME ~j#swsoa.txt~) OR                        // SoA 
     WRITE_BYTE 0x2b BIT1 // remove all kit unusabilities except for Beastmaster
 
 END
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Replace Bandit Scalps with Badges                \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @100000 DESIGNATED 100
+GROUP @9
+REQUIRE_PREDICATE ("%LANGUAGE%" STRING_COMPARE_CASE "english" = 0) @5 // skip if translation doesn't exist
+REQUIRE_PREDICATE GAME_IS ~bgt bgee tutu_totsc eet~ @2 // totsc required
+LABEL ~cd_the_calling_badges_for_scalps~
+
+// new art
+COPY ~thecalling/bam/cdibandi.bam~                   ~override~
+     ~thecalling/bam/cdcbandi%enhanced_edition%.bam~ ~override/cdcbandi.bam~
+
+COPY_EXISTING ~%tutu_var%misc86.itm~ ~override~
+  SAY 0x08 @100001 // name
+  SAY 0x0c @100001 // name
+  SAY 0x50 @100002 // descript
+  SAY 0x54 @100002 // descript
+  WRITE_ASCII 0x3a ~cdibandi~ #8 // icon
+  WRITE_ASCII 0x58 ~cdcbandi~ #8 // descript image
+
+// make changes by decompile-and-patch rather than d code or STRING_SET since these strrefs will be different on tutu/bgt/bgee/eet
+OUTER_SET old_journal = 0
+OUTER_SET old_journal2 = 0
+OUTER_SET old_journal3 = 0
+OUTER_SET new_journal = RESOLVE_STR_REF (@100008)
+OUTER_SET new_journal2 = 0 // actually set for bgt
+OUTER_SET new_journal3 = 0 // actually set for bgt
+
+ACTION_IF game_is_bgt BEGIN 
+
+  OUTER_SET new_journal2 = RESOLVE_STR_REF (@100009)
+  OUTER_SET new_journal3 = RESOLVE_STR_REF (@100010)
+  COPY_EXISTING ~chloe.dlg~ ~override~
+    DECOMPILE_AND_PATCH BEGIN 
+      REPLACE_EVALUATE ~\(UNSOLVED_JOURNAL #\)\([0-9]+\)~ BEGIN  
+        SET old_journal2 = MATCH2
+      END ~%MATCH1%%new_journal2%~
+    END
+    BUT_ONLY
+  
+END 
+
+COPY_EXISTING ~%tutu_var%vai.dlg~ ~override~
+  DECOMPILE_AND_PATCH BEGIN 
+    REPLACE_TEXTUALLY "\(THEN BEGIN 2[%LNL%%MNL%%WNL% %TAB%]+SAY\) #[0-9]+" ~\1 @100003~ // state 2 in vai
+    REPLACE_TEXTUALLY "\(THEN BEGIN 3[%LNL%%MNL%%WNL% %TAB%]+SAY\) #[0-9]+" ~\1 @100004~ // state 3
+    REPLACE_TEXTUALLY "\(THEN BEGIN 4[%LNL%%MNL%%WNL% %TAB%]+SAY\) #[0-9]+" ~\1 @100005~ // state 4
+    REPLACE_TEXTUALLY "\(THEN BEGIN 5[%LNL%%MNL%%WNL% %TAB%]+SAY\) #[0-9]+" ~\1 @100006~ // state 5
+    REPLACE_TEXTUALLY "\(THEN BEGIN 7[%LNL%%MNL%%WNL% %TAB%]+SAY\) #[0-9]+" ~\1 @100007~ // state 7
+    REPLACE_EVALUATE ~\(UNSOLVED_JOURNAL #\)\([0-9]+\)~ BEGIN  
+      SET old_journal = MATCH2
+    END ~%MATCH1%%new_journal%~
+    REPLACE_TEXTUALLY ~EraseJournalEntry(%old_journal%)~ ~EraseJournalEntry(%new_journal%)~
+    PATCH_IF game_is_bgt BEGIN 
+      REPLACE_TEXTUALLY ~EraseJournalEntry(%old_journal2%)~ ~EraseJournalEntry(%new_journal2%)~
+      REPLACE_EVALUATE ~\(\bSOLVED_JOURNAL #\)\([0-9]+\)~ BEGIN  
+        SET old_journal3 = MATCH2
+      END ~%MATCH1%%new_journal3%~
+    END   
+  END
+  BUT_ONLY
+
+ACTION_IF enhanced_edition BEGIN 
+
+  COPY_EXISTING ~bgee.lua~ ~override~
+    REPLACE_TEXTUALLY ~\(createEntry    ( [0-9]+, -1, \)%old_journal%\(, {}, nil )\)~ ~\1%new_journal%\2~
+    BUT_ONLY
+    
+END ELSE ACTION_IF game_is_bgt BEGIN
+
+  COPY_EXISTING ~amnscene.bcs~ ~override~
+    DECOMPILE_AND_PATCH BEGIN 
+      REPLACE_TEXTUALLY ~EraseJournalEntry(%old_journal%)~ ~EraseJournalEntry(%new_journal%)~
+      REPLACE_TEXTUALLY ~EraseJournalEntry(%old_journal2%)~ ~EraseJournalEntry(%new_journal2%)~
+    END   
+    BUT_ONLY
+
+END
