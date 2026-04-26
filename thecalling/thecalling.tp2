@@ -212,8 +212,8 @@ ACTION_IF FILE_EXISTS_IN_GAME ~mh#gem01.itm~ BEGIN // ruby
     BUT_ONLY
     
   OUTER_SPRINT mih_ruby ~~~~~
-IF ~Global("mh#gem01","LOCALS",0) PartyHasItem("mh#gem01")~ THEN REPLY #%name% 
-  DO ~SetGlobal("mh#gem01","LOCALS",1) TakePartyItem("mh#gem01") DestroyItem("mh#gem01") IncrementGlobal("CDGemQuality","GLOBAL",3)~ GOTO GemQ3
+IF ~Global("cd_mh#gem01","LOCALS",0) PartyHasItem("mh#gem01")~ THEN REPLY #%name% 
+  DO ~SetGlobal("cd_mh#gem01","LOCALS",1) TakePartyItem("mh#gem01") DestroyItem("mh#gem01") IncrementGlobal("CDGemQuality","GLOBAL",3)~ GOTO GemQ3
 ~~~~~                                                      
 END 
 ACTION_IF FILE_EXISTS_IN_GAME ~mh#gem02.itm~ BEGIN // ruby
@@ -223,8 +223,8 @@ ACTION_IF FILE_EXISTS_IN_GAME ~mh#gem02.itm~ BEGIN // ruby
     BUT_ONLY
     
   OUTER_SPRINT mih_sapphire ~~~~~
-IF ~Global("mh#gem02","LOCALS",0) PartyHasItem("mh#gem02")~ THEN REPLY #%name% 
-  DO ~SetGlobal("mh#gem02","LOCALS",1) TakePartyItem("mh#gem02") DestroyItem("mh#gem02") IncrementGlobal("CDGemQuality","GLOBAL",3)~ GOTO GemQ3
+IF ~Global("cd_mh#gem02","LOCALS",0) PartyHasItem("mh#gem02")~ THEN REPLY #%name% 
+  DO ~SetGlobal("cd_mh#gem02","LOCALS",1) TakePartyItem("mh#gem02") DestroyItem("mh#gem02") IncrementGlobal("CDGemQuality","GLOBAL",3)~ GOTO GemQ3
 ~~~~~                                                      
 END 
 
