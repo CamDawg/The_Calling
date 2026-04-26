@@ -932,6 +932,8 @@ APPEND ~%tutu_var%THALAN~
                                                       TakePartyItem("%tutu_var%misc45")
                                                       DestroyItem("%tutu_var%misc45")
                                                       IncrementGlobal("CDGemQuality","GLOBAL",5)~ GOTO GemQ5 // rogue stone
+%mih_ruby%
+%mih_sapphire%
     IF ~Global("misc32","LOCALS",0)
         PartyHasItem("%tutu_var%misc32")~ THEN REPLY #7129 DO ~SetGlobal("misc32","LOCALS",1)
                                                       TakePartyItem("%tutu_var%misc32")

@@ -202,6 +202,32 @@ END ELSE BEGIN
 
 END
 
+// add mih gems
+OUTER_SPRINT mih_ruby ~~
+OUTER_SPRINT mih_sapphire ~~
+ACTION_IF FILE_EXISTS_IN_GAME ~mh#gem01.itm~ BEGIN // ruby
+
+  COPY_EXISTING ~mh#gem01.itm~ ~override~
+    READ_LONG 0x0c name
+    BUT_ONLY
+    
+  OUTER_SPRINT mih_ruby ~~~~~
+IF ~Global("mh#gem01","LOCALS",0) PartyHasItem("mh#gem01")~ THEN REPLY #%name% 
+  DO ~SetGlobal("mh#gem01","LOCALS",1) TakePartyItem("mh#gem01") DestroyItem("mh#gem01") IncrementGlobal("CDGemQuality","GLOBAL",3)~ GOTO GemQ3
+~~~~~                                                      
+END 
+ACTION_IF FILE_EXISTS_IN_GAME ~mh#gem02.itm~ BEGIN // ruby
+
+  COPY_EXISTING ~mh#gem02.itm~ ~override~
+    READ_LONG 0x0c name
+    BUT_ONLY
+    
+  OUTER_SPRINT mih_sapphire ~~~~~
+IF ~Global("mh#gem02","LOCALS",0) PartyHasItem("mh#gem02")~ THEN REPLY #%name% 
+  DO ~SetGlobal("mh#gem02","LOCALS",1) TakePartyItem("mh#gem02") DestroyItem("mh#gem02") IncrementGlobal("CDGemQuality","GLOBAL",3)~ GOTO GemQ3
+~~~~~                                                      
+END 
+
 COMPILE EVALUATE_BUFFER ~thecalling/dlg/mage.d~
                         ~thecalling/baf/cdiris.baf~
                         ~thecalling/baf/cdlargo.baf~
