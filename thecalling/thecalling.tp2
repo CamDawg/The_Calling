@@ -1442,9 +1442,37 @@ REQUIRE_PREDICATE GAME_IS ~bgee tutu tutu_totsc bgt eet~ @0
 REQUIRE_PREDICATE ("%LANGUAGE%" STRING_COMPARE_CASE "english" = 0) @5 // skip if translation doesn't exist
 LABEL ~cd_the_calling_thief~
 
+/*
+
+CDThiefCalling
+
+fail values:
+-1 rejected Bdharlan's quest
+-2 did not accept/complete mysterious woman's quest
+
+1 Bdharlan has spawned
+2 agreed to help Bdharlan
+3 followed Bdharlan to the hag's area via cutscene, prompts hag dialogue
+4 hag dialogue complete, ambush sprung
+ - interlude for Narlen's quests, need NarlenMove>6 to proceed -
+4 & NarlenMove>6 - spawn mysterious woman
+5 prompt MW to speak
+6 move MW to gate, spawn Mallandrea in undercellars - Xamm spawns here or for any >5 value
+7 Mallandrea spawned
+8 spoke with Mallandrea (all outcomes)
+9 fought xamm
+10 xamm left peacfully
+11 xamm pushed into river
+12 reported xamm's demise to MW, quest complete
+
+*/
+
 /////                                                  \\\\\
 ///// copies, preamble                                 \\\\\
 /////                                                  \\\\\
+
+ADD_JOURNAL TITLE (@80151) @80152 @80153 @80154 @80155 // A Job for Bdharlan
+ADD_JOURNAL TITLE (@80156) @80157 @80158 @80159 @80160 @80161 @80162 @80163 // A Job for the Mystery Woman
 
 COPY ~thecalling/bam/cd09amu%enhanced_edition%.bam~ ~override/cd09amu.bam~
      ~thecalling/bam/cd09clu%enhanced_edition%.bam~ ~override/cd09clu.bam~
@@ -1453,8 +1481,6 @@ COPY ~thecalling/bam/cd09amu%enhanced_edition%.bam~ ~override/cd09amu.bam~
      ~thecalling/bam/cd09rin%enhanced_edition%.bam~ ~override/cd09rin.bam~
 
 LAF HANDLE_AUDIO STR_VAR audio_path = ~thecalling/audio/80~ oggdec_path = ~thecalling/audio~ sox_path = ~thecalling/audio~ END // ambients, audio
-						
-//ADD_JOURNAL TITLE (@70201) @70202 @70203 @70204 @70205 @70206 @70207 @70208 @70209 @70210 @70211 @70212 @70213 @70214 @70215 @70216 @70217 @70218 @70235
 
 /////                                                  \\\\\
 ///// area stuff                                       \\\\\
@@ -1518,6 +1544,7 @@ COMPILE ~thecalling/baf/cd09spc.baf~
 COMPILE ~thecalling/baf/cd09th2.baf~
 COMPILE ~thecalling/baf/cd09thi.baf~ EVALUATE_BUFFER
 
+EXTEND_BOTTOM ~baldur.bcs~                         ~thecalling/baf/cd09man_baldur.baf~
 EXTEND_BOTTOM ~%BaldursGate_Undercellars_BCS%.bcs~ ~thecalling/baf/ar0112.baf~
 EXTEND_BOTTOM ~%EBaldursGate_BCS%.bcs~             ~thecalling/baf/ar0800.baf~ EVALUATE_BUFFER
 EXTEND_BOTTOM ~%WyrmsCrossing_BCS%.bcs~            ~thecalling/baf/ar0900.baf~

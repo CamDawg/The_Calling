@@ -18,3 +18,38 @@ THEN
     SetGlobal("CDThiefCallingMan","MYAREA",1)
     CreateCreature("CD09MAN",[1300.2900],11)
 END
+
+IF 
+  Global("CDThiefCalling","GLOBAL",4)
+  Dead("cd09thi")
+  Dead("cd09hag")
+THEN
+  RESPONSE #100  
+    EraseJournalEntry(@80153) 
+    AddJournalEntry(@80154,QUEST_DONE)
+END 
+
+IF 
+  Global("CDThiefCalling","GLOBAL",4)
+  OR(2)
+    !Dead("cd09thi")
+    !Dead("cd09hag")
+THEN
+  RESPONSE #100  
+    EraseJournalEntry(@80153) 
+    AddJournalEntry(@80155,QUEST_DONE)
+END     
+
+IF 
+  Global("CD09MAN_journal","MYAREA",0)
+  OR(3)
+    Dead("CD09MAN")
+    Global("CDThiefCalling","GLOBAL",10)
+    Global("CDThiefCalling","GLOBAL",11)
+THEN
+  RESPONSE #100  
+    SetGlobal("CD09MAN_journal","MYAREA",1)
+    EraseJournalEntry(@80159) 
+    EraseJournalEntry(@80160) 
+    AddJournalEntry(@80161,QUEST)
+END     

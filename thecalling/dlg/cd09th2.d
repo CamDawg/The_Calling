@@ -46,11 +46,11 @@ CHAIN CD09TH2 01.06
 ==CD09TH2 @80107
 ==CD09TH2 @80108
 ==CD09TH2 @80109
-DO ~SetGlobal("CDThiefCalling","GLOBAL",6) SetGlobalTimer("CD09ThiefCallingTimeBG","GLOBAL",THREE_DAYS) EscapeArea()~ EXIT
+DO ~AddJournalEntry(@80158,QUEST) SetGlobal("CDThiefCalling","GLOBAL",6) SetGlobalTimer("CD09ThiefCallingTimeBG","GLOBAL",THREE_DAYS) EscapeArea()~ EXIT
 
 CHAIN CD09TH2 01.02
 @80110
-DO ~SetGlobal("CDThiefCalling","GLOBAL",-1) EscapeArea()~ EXIT
+DO ~AddJournalEntry(@80157,QUEST_DONE) SetGlobal("CDThiefCalling","GLOBAL",-2) EscapeArea()~ EXIT
 
 //FRIEND
 
@@ -96,15 +96,15 @@ EXTERN CD09FRI 02.09
 CHAIN CD09FRI 02.09
 @80127
 ==CD09FRI @80128
-DO ~SetGlobal("CDThiefCalling","GLOBAL",8) EscapeArea()~ EXIT
+DO ~AddJournalEntry(@80159,QUEST) SetGlobal("CDThiefCalling","GLOBAL",8) EscapeArea()~ EXIT
 
 CHAIN CD09FRI 02.08
 @80129
-DO ~SetGlobal("CDThiefCalling","GLOBAL",8) EscapeArea()~ EXIT
+DO ~AddJournalEntry(@80160,QUEST) SetGlobal("CDThiefCalling","GLOBAL",8) EscapeArea()~ EXIT
 
 CHAIN CD09FRI 02.03
 @80130
-EXIT
+DO ~AddJournalEntry(@80160,QUEST) SetGlobal("CDThiefCalling","GLOBAL",8) EscapeArea()~ EXIT
 
 //MAN
 
@@ -155,6 +155,17 @@ CHAIN CD09TH2 04.01
 @80148
 ==CD09TH2 @80149
 ==CD09TH2 @80150
-DO ~SetGlobal("CDThiefCalling","GLOBAL",12) AddExperienceParty(3000) AddXPObject(Player1,1000) GiveItemCreate("cd09pc",Player1,1,0,0) EscapeArea()~ EXIT
+DO ~EraseJournalEntry(@80157) 
+    EraseJournalEntry(@80158) 
+    EraseJournalEntry(@80159) 
+    EraseJournalEntry(@80160) 
+    EraseJournalEntry(@80161) 
+    EraseJournalEntry(@80163) 
+    AddJournalEntry(@80162,QUEST_DONE)
+    SetGlobal("CDThiefCalling","GLOBAL",12) 
+    AddExperienceParty(3000) 
+    AddXPObject(Player1,1000) 
+    GiveItemCreate("cd09pc",Player1,1,0,0) 
+    EscapeArea()~ EXIT
 
 

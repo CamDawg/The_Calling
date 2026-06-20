@@ -1,0 +1,14 @@
+IF 
+  !Global("CDThiefCalling","GLOBAL",12)
+  GlobalTimerExpired("CD09ThiefCallingTimeBG","GLOBAL")
+THEN
+  RESPONSE #100  
+    EraseJournalEntry(@80157) 
+    EraseJournalEntry(@80158) 
+    EraseJournalEntry(@80159) 
+    EraseJournalEntry(@80160) 
+    EraseJournalEntry(@80161) 
+    EraseJournalEntry(@80162) 
+    AddJournalEntry(@80163,QUEST_DONE)
+    SetGlobal("CDThiefCalling","GLOBAL",-2)
+END     

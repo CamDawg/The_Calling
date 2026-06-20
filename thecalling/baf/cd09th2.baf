@@ -8,10 +8,8 @@ END
 
 IF
   Exists(Myself)
-  !Global("CDThiefCalling","GLOBAL",-1)
-  GlobalTimerExpired("CD09ThiefCallingTimeBG","GLOBAL")
+  !Global("CDThiefCalling","GLOBAL",-2)
 THEN
   RESPONSE #100
-    SetGlobal("CDThiefCalling","GLOBAL",-1)
     DestroySelf()
 END

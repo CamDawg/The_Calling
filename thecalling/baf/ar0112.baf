@@ -5,3 +5,11 @@ THEN
     SetGlobal("CDThiefCalling","GLOBAL",7)
     CreateCreature("CD09FRI",[2000.500],1)
 END
+
+IF
+  GlobalGT("CDThiefCalling","GLOBAL",8)
+  Exists("CD09FRI")
+THEN
+  RESPONSE #100
+    ActionOverride("CD09FRI",DestroySelf())
+END

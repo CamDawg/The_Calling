@@ -1491,6 +1491,53 @@ Weight: 0~
 @80149 = ~Good job. And as I promised, I've got something for you. Five hundred an a little something that someone like you can find pretty useful.~
 @80150 = ~I must say that whoever you're looking for, that someone is in quite some trouble. And don't bother asking me if I heard you're looking for someone. Half of this city is looking for someone or something, and the other half is running from something. That's called life.~
 
+// journal entries
+@80151 = ~Aid for Bdharlan~
+@80152 = ~Aid for Bdharlan
+
+Bdharlan approached me near Wyrm's Crossing with a job, but I wasn't interested.~
+@80153 = ~Aid for Bdharlan
+
+Bdharlan approached me near Wyrm's Crossing with a job and has asked me to follow him... after a personal break.~
+@80154 = ~Aid for Bdharlan
+
+Bdharlan double-crossed me with his hag of a partner, but they underestimated the threat. He and his mistress lie dead and I have some trinkets to show for it.~
+@80155 = ~Aid for Bdharlan
+
+Bdharlan double-crossed me but I fled with my life.~
+@80156 = ~A Job for the Mysterious Woman~
+@80157 = ~A Job for the Mysterious Woman
+
+A woman approached me outside the Thieves Guild in Baldur's Gate. She had heard of my work with Narlen and had a job for me, but I didn't like the feel of it and turned her down.~
+@80158 = ~A Job for the Mysterious Woman
+
+A woman approached me outside the Thieves Guild in Baldur's Gate. She had heard of my work with Narlen and had a job for me to get rid of Xamm, a Flaming Fist, that is bothering her friend. To find him, I should speak to her friend Mallandrea in the Undercellars.
+
+The job must be completed in three days.~
+@80159 = ~A Job for the Mysterious Woman
+
+I spoke to Mallandrea in the Undercellars and she said I can find Xamm near the river just outside the city.~
+@80160 = ~A Job for the Mysterious Woman
+
+I spoke to Mallandrea in the Undercellars but I could not get Xamm's location from her. All I can do now is hope to find him through blind luck.~
+@80161 = ~A Job for the Mysterious Woman
+
+I found Xamm near the river just outside the city gate and dealt with him. I should return to the city and look for the mysterious woman near the inside of the city gate.~
+@80162 = ~A Job for the Mysterious Woman
+
+The mysterious woman has happy that Xamm can no longer bother her friend, and rewarded me for my time.~
+@80163 = ~A Job for the Mysterious Woman
+
+I was unable to locate and deal with Xamm within the requested three days.~
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Replace Bandit Scalps with Badges                \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
 // this block is straight text replacements for existing durlyle/delainy lines. Any alterations here are for where the
 // dialogue assumes the gender of player1. Numbers at the end are the original bg/bgee string references
 
