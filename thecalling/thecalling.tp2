@@ -10,8 +10,6 @@ ALWAYS
     OUTER_SET cd_the_calling_always = 1
 
     INCLUDE ~thecalling/lib/game_checks.tpa~
-
-    ACTION_IF (!tutu_gen AND !game_is_bgt AND !game_is_bgee AND !game_is_eet) THEN BEGIN FAIL @0 END
   
     INCLUDE ~thecalling/lib/cd_functions.tpa~ // functions for mod
     
@@ -128,6 +126,7 @@ LANGUAGE ~Simplified Chinese (Translation from bg2_tweaks by Miranda, distance20
 
 BEGIN @100 DESIGNATED 0
 GROUP @8
+REQUIRE_PREDICATE GAME_IS ~bgee tutu tutu_totsc bgt eet~ @0
 REQUIRE_PREDICATE (("%LANGUAGE%" STRING_COMPARE_CASE "english" = 0) OR 
                    ("%LANGUAGE%" STRING_COMPARE_CASE "french" = 0) OR 
                    ("%LANGUAGE%" STRING_COMPARE_CASE "polish" = 0) OR 
@@ -438,6 +437,7 @@ COPY ~thecalling/cre/cdgrace.cre~ ~override~
 
 BEGIN @10000 DESIGNATED 10
 GROUP @8
+REQUIRE_PREDICATE GAME_IS ~bgee tutu tutu_totsc bgt eet~ @0
 REQUIRE_PREDICATE ("%LANGUAGE%" STRING_COMPARE_CASE "english" = 0) @5 // skip if translation doesn't exist
 LABEL ~cd_the_calling_fighter~
 
@@ -1231,6 +1231,7 @@ INCLUDE ~thecalling/lib/shaman.tpa~
 
 BEGIN @70000 DESIGNATED 70
 GROUP @8
+REQUIRE_PREDICATE GAME_IS ~bgee tutu tutu_totsc bgt eet~ @0
 REQUIRE_PREDICATE ("%LANGUAGE%" STRING_COMPARE_CASE "english" = 0) @5 // skip if translation doesn't exist
 LABEL ~cd_the_calling_monk~
 
@@ -1437,6 +1438,7 @@ END
 
 BEGIN @80000 DESIGNATED 80
 GROUP @8
+REQUIRE_PREDICATE GAME_IS ~bgee tutu tutu_totsc bgt eet~ @0
 REQUIRE_PREDICATE ("%LANGUAGE%" STRING_COMPARE_CASE "english" = 0) @5 // skip if translation doesn't exist
 LABEL ~cd_the_calling_thief~
 
@@ -1620,6 +1622,7 @@ COPY ~thecalling/itm/cd09pc.itm~ ~override~
 
 BEGIN @50000 DESIGNATED 50
 GROUP @8
+REQUIRE_PREDICATE GAME_IS ~bgee tutu tutu_totsc bgt eet~ @0
 REQUIRE_PREDICATE ((MOD_IS_INSTALLED ~thecalling.tp2~ 10) OR
                    (MOD_IS_INSTALLED ~thecalling.tp2~ 20) OR
                    (MOD_IS_INSTALLED ~thecalling.tp2~ 60) OR
@@ -1762,6 +1765,7 @@ END
 
 BEGIN @40000 DESIGNATED 40
 GROUP @9
+REQUIRE_PREDICATE GAME_IS ~bgee tutu tutu_totsc bgt eet~ @0
 REQUIRE_PREDICATE NOT MOD_IS_INSTALLED ~CDTWEAKS/SETUP-CDTWEAKS.TP2~ ~1090~ @1 // skip if already installed by tweaks anthology
 LABEL ~cd_the_calling_exotic_items~
 
@@ -2007,8 +2011,8 @@ END
 
 BEGIN @100000 DESIGNATED 100
 GROUP @9
+REQUIRE_PREDICATE GAME_IS ~bgee tutu tutu_totsc bgt eet~ @0
 REQUIRE_PREDICATE ("%LANGUAGE%" STRING_COMPARE_CASE "english" = 0) @5 // skip if translation doesn't exist
-REQUIRE_PREDICATE GAME_IS ~bgt bgee tutu_totsc eet~ @2 // totsc required
 LABEL ~cd_the_calling_badges_for_scalps~
 
 // new art
