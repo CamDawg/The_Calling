@@ -1277,7 +1277,7 @@ ADD_JOURNAL TITLE (@70201) @70202 @70203 @70204 @70205 @70206 @70207 @70208 @702
 
 COMPILE ~thecalling/baf/cd23mon.baf~
 COMPILE ~thecalling/baf/cd23rog.baf~
-COMPILE ~thecalling/baf/cd23vis.baf~
+COMPILE ~thecalling/baf/cd23vis.baf~ EVALUATE_BUFFER
 COMPILE ~thecalling/baf/cd23fin.baf~ EVALUATE_BUFFER
 COMPILE ~thecalling/baf/cd23sp1.baf~ EVALUATE_BUFFER
 COMPILE ~thecalling/baf/cd23sp2.baf~
