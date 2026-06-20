@@ -10,6 +10,7 @@ END
 IF
   Global("CDMonkCallingEnemy0","%CoastWay%",1)
   PartyHasItem("cd23amu")
+  Global("CDMonkCalling","GLOBAL",4)
 THEN 
   RESPONSE #100
     EraseJournalEntry(@70204) 
