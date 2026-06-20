@@ -531,7 +531,7 @@ Weight: 2~
 @10051 = ~I am sorry, Hvalanya, but I cannot let you attack people of the Sword Coast. I'm here to stop you.~
 @10052 = ~Hahahaha! You are a funny small thing! Me and my boys will show you that you do not just bark at Chieftain Hvalanya and expect to get out of this in one piece! Auuu!~
 @10053 = ~I salute you, friend.~
-@10054 = ~You! Argh, your kind know not when to leave gnolls alone...! Evil old ones, hated by strong gnolls, even the chieftan.~
+@10054 = ~You! Argh, your kind know not when to leave gnolls alone...! Evil old ones, hated by strong gnolls, even the chieftain.~
 @10055 = ~Who are you?~
 @10056 = ~Now, now. That's quite a collection of things you've got here. Impressive for someone of your kind.~
 @10057 = ~Now you ask...?! After you kill old or hurt gnolls? Argh!~
@@ -728,9 +728,9 @@ Not Usable By:
 
 @21604 = ~Why must we fight? Cannot let you leave knowing all this. We could have existed peacefully, but now you have fought and will never accept. Others will come to kill or capture. Adventurers like you always come, do they not? No, I must fight, and you must die! We may still have hope if Selaad returns, but you cannot help anymore.~
 @21605 = ~Kaishas, we fought only because we were forced to. It was not our doing, but yours, and there is no need for it to go on.~
-@21606 = ~We were forced to fight, Kaishas, and we fought well - do you really think you can stop us boarding this ship?~
+@21606 = ~We were forced to fight, Kaishas, and we fought well--do you really think you can stop us boarding this ship?~
 @21607 = ~Your village and the tunnels beneath it are now filled with the corpses of your kind. If you really want to fight then so be it, but you're making a mistake.~
-@21608 = ~Die, then - if you are a monster, I shall treat you as one.~
+@21608 = ~Die, then--if you are a monster, I shall treat you as one.~
 @21609 = ~Such generosity, but if you leave you will exterminate anyway. Others will come, other fools just to fight the "evil" we are. No, we must remain alone here now, and so must you. Die and sleep, and you will not know the loneliness. Perhaps if Selaad returns we will try again. Until then, we stay.~
 @21610 = ~Kaishas, there is no need for this. This isn't my choice, but we'll kill you if we have to. Do you really think you can stop us where Karoug and Daese couldn't?~
 @21611 = ~ I... fear that we cannot. But we shall try. No choice remains to us.~
@@ -742,20 +742,20 @@ I have reluctantly fought with Kaishas. She seemed to think there was no other w
 @21616 = ~ You only remind me that this must be. Too much has happened between us. I do not know whether we can stop you or not, but the answer will be known swiftly.~
 @21617 = ~What choice is there? If truth is known, ruin will come to us!~
 @21618 = ~Then so be it.~
-@21619 = ~You can trust us. We'll tell no-one about your people - it will be as if we never came to this place.~
+@21619 = ~You can trust us. We'll tell no one about your people--it will be as if we never came to this place.~
 @21620 = ~Die well... I am truly sorry that it ends this way.~
 @21621 = ~How much I would like to believe you! But understand well, the future of my people is at stake here. I cannot take chances.~
 @21622 = ~We've been risking our lives for your damn people every day since we washed up here! What more do we have to do to persuade you? How many more babies do we have to save from wolfweres? ~
 @21623 = ~We've been risking our lives for your damn people every day since we washed up here! What more do we have to do to persuade you?~
 @21624 = ~You can do nothing. Truly, I am sorry.~
-@21625 = ~You... can do nothing. Maralee will be grateful forever for your deed.... as will I. But brave though it was, you did it without realising our true nature.~
-@21626 = ~And now I do. Prepare yourself, Kaishas - this ends now.~
-@21627 = ~This grows ridiculous. Your ingratitude sickens me - I'd hoped that I wouldn't need to see you as a monster, but it looks as if I was wrong.~
+@21625 = ~You... can do nothing. Maralee will be grateful forever for your deed.... as will I. But brave though it was, you did it without realizing our true nature.~
+@21626 = ~And now I do. Prepare yourself, Kaishas--this ends now.~
+@21627 = ~This grows ridiculous. Your ingratitude sickens me--I'd hoped that I wouldn't need to see you as a monster, but it looks as if I was wrong.~
 @21628 = ~Kaishas, do you take me for a fool? I knew you were werewolves before I even spoke to Karoug... frankly I was damn suspicious within five minutes of entering the village! If you're going to try to kill us then go right ahead, but for Ao's sake give us some credit for intelligence!~
 @21629 = ~I give you much credit, for intelligence and bravery both. Yet a headwoman's duty is all. I cannot risk that you lie.~
-@21630 = ~Kaishas, please, wait! <CHARNAME> isn't lying! We grew close... long after <PRO_HESHE> must have realised the truth about us! Spare <PRO_HIMHER> - <PRO_HESHE> may know our nature, but <PRO_HESHE> will keep our secret.~
+@21630 = ~Kaishas, please, wait! <CHARNAME> isn't lying! We grew close... long after <PRO_HESHE> must have realized the truth about us! Spare <PRO_HIMHER> - <PRO_HESHE> may know our nature, but <PRO_HESHE> will keep our secret.~
 @21631 = ~ I...~
-@21632 = ~Kaishas, my Peladan is still alive because of these outsiders. Do I have to let him grow up knowing that we slaughtered Peladan's saviour? That we are monsters in truth as well as form?~
+@21632 = ~Kaishas, my Peladan is still alive because of these outsiders. Do I have to let him grow up knowing that we slaughtered Peladan's savior? That we are monsters in truth as well as form?~
 @21633 = ~I... I have been a fool. Forgive me, <CHARNAME>, that I brought us to the brink of kinship with the beasts. But we are better than Karoug... thank you for knowing that, even as I forgot it.~
 @21634 = ~Go, in peace. I do not know what will befall when you confront my husband. Greatly I fear for him, but he brings his fate upon himself. If he will not take back the gift willingly... then you must do what you must do.~
 @21635 = ~One day, I hope, Peladan will have a <PRO_BROTHERSISTER>. <PRO_HISHER> name will be "<CHARNAME>".~
@@ -774,8 +774,8 @@ I have reluctantly fought with Kaishas. She seemed to think there was no other w
 @21648 = ~The Mysterious Island
 The mystery of this island has become clear. Mendas/Selaad sent us to the island on the false pretenses of retrieving evidence from what was believed to be Balduran's shipwreck. It was indeed the adventurer's ship, though his personal fate yet remains a mystery. Balduran's crew were infected with lycanthropy sometime during that fateful voyage. The ship was beached and wrecked leaving the two strains of lycanthropes, werewolves and wolfweres, to fight amongst themselves for survival. The more organized werewolves built the village that we recently shipwrecked near on our own fateful voyage. The chaotic wolfweres took residence in the ruins of Balduran's ship and both packs survived in uneasy co-existence since then. Mendas/Selaad eventually took the risk of sailing for the mainland. Somehow he made it and, upon discovering that someone had finally found the island, made up a plausible tale and had us first steal the sea charts, and later travel to the island to put them in his werewolf mate's hands. She had us kill the wolfweres and then infected the party with lycanthropy, intending us to join the pack or die fighting, but we persuaded her to let us leave peacefully. We sailed home to finally discover the truth of Mendas' duplicity. Fate seems to enjoy toying with me.~
 @21649 = ~I am puzzled, Mendas, or should I say Selaad. Since you are the leader of the werewolves, why did you not sail back to the island yourself?~
-@21650 = ~I am no sailor. I stay to prepare place for my people. For generations we have been trapped on island. It is time to return home to the land of grandfathers' birth. They needed charts and I needed adventurers who do not ask too much questions. Yet you have failed. I ask again - where is Kaishas?~
-@21651 = ~"Lift" it? My foolish mate, what have you told them? It is not a curse to be lifted - it is a gift to be savoured! It can only be "cured" by killing the chieftain of the werewolves. I am chieftain and I judge you unworthy to run with my pack. You will die here today. To me Baresh! A bloody reckoning is at hand!~
+@21650 = ~I am no sailor. I stay to prepare place for my people. For generations we have been trapped on island. It is time to return home to the land of grandfathers' birth. They needed charts and I needed adventurers who do not ask too much questions. Yet you have failed. I ask again--where is Kaishas?~
+@21651 = ~"Lift" it? My foolish mate, what have you told them? It is not a curse to be lifted--it is a gift to be savored! It can only be "cured" by killing the chieftain of the werewolves. I am chieftain and I judge you unworthy to run with my pack. You will die here today. To me Baresh! A bloody reckoning is at hand!~
 @21652 = ~Selaad Gan is the chief of the true people. He awaits the return of his mate Kaishas. Why have you not returned with her?~
 @21653 = ~It is not your place to question me. What part do you play in this?~
 @21654 = ~It seems that we have been deceived. Kaishas is dead and her murderous ilk died with her.~
@@ -787,9 +787,9 @@ The mystery of this island has become clear. Mendas/Selaad sent us to the island
 @21660 = ~I am Baresh. I am of the true race as you are not. The master wishes to see his wife, Kaishas Gan. Is she on the vessel still?~
 @21661 = ~The book is nothing! Thy task was to rescue the master's kin. Where is the master's mate, Kaishas?~
 @21662 = ~Thy task was clear. Travel to the island-home and retrieve master's kin. Failing that, Kaishas was to take the sea charts from thee. Useless manlings! Selaad does not brook failure well.~
-@21663 = ~Idiot! We were sent on false pretences and somehow it is our fault? Kaishas attacked us and we were forced to defend ourselves. Mendas was betrayed by his own cleverness.~
+@21663 = ~Idiot! We were sent on false pretenses and somehow it is our fault? Kaishas attacked us and we were forced to defend ourselves. Mendas was betrayed by his own cleverness.~
 @21664 = ~Mendas deceived us. He is the one that we must confront. You are merely a flunky.~
-@21665 = ~Idiot! We were sent on false pretences and somehow it is our fault? Now, take us to Selaad!~
+@21665 = ~Idiot! We were sent on false pretenses and somehow it is our fault? Now, take us to Selaad!~
 @21666 = ~Useless wretch! The master will eat thy marrow for this!~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -1010,7 +1010,7 @@ Armor Class Bonus:  +1 vs. crushing weapons~
 @70065 = ~Excuse me, priestess. I'm in need your guidance.~
 @70066 = ~Guidance, hmm? Tell me more, young man, and who knows, perhaps I will offer you an honest word or two.~
 @70067 = ~I came here in search of an old sword, Saiai no Hito. Sadly, to no avail. The Sword Coast isn't a small place and I may need some help. I have another pair of eyes with me, but we would need to know the direction in which we should look. I hoped that perhaps someone from the Temple of Wisdom could help us find that crucial detail.~
-@70068 = ~Looking at you, you must have travelled quite a bit already, no, boy?~
+@70068 = ~Looking at you, you must have traveled quite a bit already, no, boy?~
 @70069 = ~Let Gellana help you a bit. I will require two hundred gold pieces and something that would help link me with that sword you're seeking. Do you have anything like that?~
 @70070 = ~I...~
 @70071 = ~Do you?~
@@ -1149,7 +1149,7 @@ Armor Class Bonus:  +1 vs. crushing weapons~
 I was accosted by some ragged foreigner at the Friendly Arms Inn and promptly told him to be off.~
 @70203 = ~Restoring Saiai no Hito
 
-I have agreed to help Inoshishi, a traveller to the sword coast, who is looking to recover Saiai no Hito, a blade of some import to his order.~
+I have agreed to help Inoshishi, a traveler to the sword coast, who is looking to recover Saiai no Hito, a blade of some import to his order.~
 @70204 = ~Restoring Saiai no Hito
 
 Inoshishi was robbed, somewhere between here and Beregost, of an amulet. He's asked us to track down the bandit and return his amulet to him at the Temple of Wisdom.~
@@ -1158,7 +1158,7 @@ Inoshishi was robbed, somewhere between here and Beregost, of an amulet. He's as
 I have found Inoshishi's bandit and recovered his amulet. I should return to him at the Temple of Wisdom.~
 @70206 = ~Restoring Saiai no Hito
 
-Inoshishi's tasks were going nowehere fast, and I have better things to do. I have told him so, and now I can turn my time to more productive ends.~
+Inoshishi's tasks were going nowhere fast, and I have better things to do. I have told him so, and now I can turn my time to more productive ends.~
 @70207 = ~Restoring Saiai no Hito
 
 Gallena's divination has revealed that the blade has been broken into two parts. One is near a lighthouse, and the other is in the belly of a beast near a rocky area.~
@@ -1213,7 +1213,7 @@ Weight: 5~
 @70230 = ~Ya've really got 'em? Ya surely know how to surprise others. In a good way, of course!~ 
 @70231 = ~'Ere, the whetstone ya need. And I'll be takin' these shells. And... how now I'll need to figure out 'ow on Nine Hells I'm goin' to get them back south.~
 @70232 = ~Thanks for this! Remember I need five of 'em.~
-@70233 = ~I'm sure he'll need a Starfell Whetstone. Wile you've been geting the parts of the sword back, I've asked around, and I believe there's one at the Nashkel Carnival.~
+@70233 = ~I'm sure he'll need a Starfell Whetstone. Wile you've been getting the parts of the sword back, I've asked around, and I believe there's one at the Nashkel Carnival.~
 @70234 = ~I have also acquired this rare Starfell Whetstone for you to use.~
 @70235 = ~Restoring Saiai no Hito
 
@@ -1225,7 +1225,7 @@ The armor merchant at the Nashkel Carnival has a Starfell Whetstone, but he want
 @70240 = ~I'm glad! Now, let's find the right place for that.~
 @70241 = ~I understand, of course. It looks like you are a busy <PRO_MANWOMAN>. I'll meet you here when the blade's in one piece again.~
 @70242 = ~This looks like the right place for this. So, my <PRO_BROTHERSISTER>, if you're ready, we should begin!~
-@70243 = ~Well... I... I think that was quite a session! You must have fought many battles...! Your fighting techinique is quite... remarkable! Excuse me, I think I need to catch a breath!~
+@70243 = ~Well... I... I think that was quite a session! You must have fought many battles...! Your fighting technique is quite... remarkable! Excuse me, I think I need to catch a breath!~
 @70244 = ~It's good I have my water skin here. You can have some, if you're thirsty.~
 @70245 = ~Where have you been growing up again? On a battlefield, heh?~
 @70246 = ~It was actually more like a... library.~
@@ -1234,11 +1234,11 @@ The armor merchant at the Nashkel Carnival has a Starfell Whetstone, but he want
 @70249 = ~A library? That's quite hard to believe! But then again, you have no reason to lie. Ach, and I thought that Inoshishi was always quite good for his age and the time he spent working on his balance and strength!~
 @70250 = ~You clearly know what you're doing. Ach, and I thought that Inoshishi was always quite good for his age and the time he spent working on his balance and strength!~
 @70251 = ~Right. I'm sorry, I didn't mean to be nosy.~
-@70252 = ~This session reminded me how it felt back in Saku Monastery. The training sessions, the meditations. I miss them just as much as I miss the air, the incense and the evenings after a fine day, maditating as the sun crosses the line of the horizon and the moon rises.~
+@70252 = ~This session reminded me how it felt back in Saku Monastery. The training sessions, the meditations. I miss them just as much as I miss the air, the incense and the evenings after a fine day, meditating as the sun crosses the line of the horizon and the moon rises.~
 @70253 = ~Many may think that life in a monastery is boring, but it comes with much joy and confidence and the feeling of purpose.~
 @70254 = ~What do you mean?~
 @70255 = ~Look, that's all very nice, but I need to go. Thank you for this training session. We'll meet again at the forge when the blade's fixed, in the couple of days.~
-@70256 = ~I once heard some people speaking that we waste our time on pointless contemplations and discipline, while we could truly enjoy our life by being free. But our life at the Monastery is what I consider freedom. It is there I was prepared for this mission. It is there that I understood myself better. And it was there that I was taught how to defend myself if anything goes wrong.~
+@70256 = ~I once heard some people speaking that we waste our time on pointless contemplation and discipline, while we could truly enjoy our life by being free. But our life at the Monastery is what I consider freedom. It is there I was prepared for this mission. It is there that I understood myself better. And it was there that I was taught how to defend myself if anything goes wrong.~
 @70257 = ~This is a kind of freedom. Or at least a way that may lead me to it.~
 @70258 = ~I suppose all of us need to find their own way to freedom. And it truly sounds like your have found your way, my friend.~
 @70259 = ~You said you were prepared for your mission there, yet I am the one that's doing most of the work. No, what you are speaking of isn't freedom. It's a cage. One made of gold and peace, but still a cage.~
@@ -1248,7 +1248,7 @@ The armor merchant at the Nashkel Carnival has a Starfell Whetstone, but he want
 @70263 = ~I don't think I agree, but I will surely think about what you said, my friends. Even if only to understand WHY you said it. Thank you.~
 @70264 = ~Mmm. I suppose you're right. I shouldn't feel angry about it and perhaps what you said will let me leave their words behind me.~
 @70265 = ~...~
-@70266 = ~I think we walk an interesting path, you and me. One of that requires both discipline and... and readiness to face questions that may challange our minds and souls. I was presented my quest, and that makes me wonder if you were already presented yours. Or if it's just a prelude to something greater, these things you're facing right now. But...~
+@70266 = ~I think we walk an interesting path, you and me. One of that requires both discipline and... and readiness to face questions that may challenge our minds and souls. I was presented my quest, and that makes me wonder if you were already presented yours. Or if it's just a prelude to something greater, these things you're facing right now. But...~
 @70267 = ~...I'm sorry. Sometimes I can ask to many questions or speak to many words when someone else just needed to rest for a moment, heh. Well, that's what Sakurachi told me, one of my friends. Hmm, I actually miss her quite a bit.~
 @70268 = ~It's time to stand up, and... agh. Hah! You truly gave me a lesson here, with all those moves I wasn't prepared to see and avoid! It's good I am just as tough as my name may suggest, hahaha!~
 @70269 = ~I'm not sure I understand.~
@@ -1279,7 +1279,7 @@ The armor merchant at the Nashkel Carnival has a Starfell Whetstone, but he want
 STATISTICS:
 
 Combat abilities:
-- Each succesful hit has a 75% chance to cause additional 1 cold damage
+- Each successful hit has a 75% chance to cause additional 1 cold damage
 
 THAC0: +1
 Damage: 1d6+1 (crushing)
@@ -1318,7 +1318,7 @@ Equipped abilities:
 - May only be removed with a Remove Curse spell
 
 Combat abilities:
-- Each succesful hit has a 10% chance to lower your magic resistance by 2% for 3 rounds. That vicious curse is very amusing to this weapon so it will laugh at you each time that happens... what can be also quite annoying and, to be quite frank, really rude
+- Each successful hit has a 10% chance to lower your magic resistance by 2% for 3 rounds. That vicious curse is very amusing to this weapon so it will laugh at you each time that happens... what can be also quite annoying and, to be quite frank, really rude
 
 THAC0: +2
 Damage: 1d4+2 (piercing)
@@ -1346,7 +1346,7 @@ Weight: 0~
 
 I understand you want to join our group. Who knows, perhaps you will fit in. I guess, however, Narlen will like to check if you'd be the right addition. That guy wants to make sure the new ones won't chicken out and will have his back. 
 
-Remember, though! If he approaches you, NEVER question the way he talks. We got used to it, but he's really sensitive when it comes to that. If the two of you work together, perhaps you'll get your first chance to eart a coin or two.
+Remember, though! If he approaches you, NEVER question the way he talks. We got used to it, but he's really sensitive when it comes to that. If the two of you work together, perhaps you'll get your first chance to earn a coin or two.
 
 With regards, 
 Friend~
@@ -1376,7 +1376,7 @@ Weight: 0~
 @80034 = ~Wait! There's gold. There is so much gold and it can be yours. Just... help me finish something!~
 @80035 = ~And what sort of help you hope to get, hmm? What is this "case" you're speaking of?~
 @80036 = ~I'm not interested. Now get off my way or they'll find your dead body under that bridge over here.~
-@80037 = ~You see, I... encoutnered this woman and I tried to take something from her. Some food...~
+@80037 = ~You see, I... encountered this woman and I tried to take something from her. Some food...~
 @80038 = ~...and a wand, it looked expensive...~
 @80039 = ~...and there was this amulet...~
 @80040 = ~...it was right next those golden coins she had near her pillow...~
@@ -1385,7 +1385,7 @@ Weight: 0~
 @80043 = ~...a healing potion...~
 @80044 = ~...some balm, I have that nasty itch... down there...~
 @80045 = ~...a new comb, I do want to look neat once I'm in Baldur's Gate...~
-@80046 = ~...a pair of scissors, I reall need to cut my fingernails...~
+@80046 = ~...a pair of scissors, I really need to cut my fingernails...~
 @80047 = ~...I was hoping to maybe find some perfume...~
 @80048 = ~...and I really needed a fresh pair of socks! Mine are as sticky as if I stepped into honey or tree sap.~
 @80049 = ~That's... quite a list!~
@@ -1407,13 +1407,13 @@ Weight: 0~
 @80065 = ~Mhm! Follow me.~
 @80066 = ~Ooo, haha! Just look at that one's face! Nicer that what I've seen in days!~
 @80067 = ~Oh, that even rhymes! That's even better! Mmm!~
-@80068 = ~We had a deal so... I present you your gift, hag. I hope you'll caccept it.~
+@80068 = ~We had a deal so... I present you your gift, hag. I hope you'll accept it.~
 @80069 = ~It looks nice, mhm. But I suppose I should also check <PRO_HISHER> teeth, bad teeth and stinky breath aren't really appetizing! Hahaha!~
 @80070 = ~Nah. I think they should be fine.~
 @80071 = ~Now, I got you something in exchange for my own freedom. So free me. I promise I will never again try to steal from you.~
-@80072 = ~Hmm. Maybe I should... if you help me to sieze that one over here.~
+@80072 = ~Hmm. Maybe I should... if you help me to seize that one over here.~
 @80073 = ~Hey! I was just supposed to bring someone, not fight them!~
-@80074 = ~Serve me, little one, just another while and I'll do what you hearts and mind wasnt right now!~
+@80074 = ~Serve me, little one, just another while and I'll do what you hearts and mind wasn't right now!~
 @80075 = ~Let me see into your chest and skull and see...! Mhm!~
 @80076 = ~I...~
 @80077 = ~You want it to stop itching! Hahaha! Good! I can help with that! The itching of your... branch shall end in a blink of an eye! My eye, of course, hahahaha!~
@@ -1432,7 +1432,7 @@ Weight: 0~
 @80090 = ~Who is that man you want gone?~
 @80091 = ~I... think I changed my mind. Sorry, but I'm not interested in such job.~
 @80092 = ~A man. A Flaming Fist member. Xamm. He's been sleeping with my friend. She fell for his stupid charm. He's also sleeping with half of this damn city. He broke hearts of many girls. And I really don't get him why the rest, regardless of sex, wealth and education still believe he's worth any attention.~
-@80093 = ~I carely little about others, but my friend... she deserves some healing. She really does.~
+@80093 = ~I care little about others, but my friend... she deserves some healing. She really does.~
 @80094 = ~Why won't you deal with him on your own.~
 @80095 = ~He sounds like a dog that knows more than just one trick, haha! But... if you pay, I can deal with him.~
 @80096 = ~He sounds like quite a jerk. I'll happily help you and make him leave Baldur's Gate.~
@@ -1442,7 +1442,7 @@ Weight: 0~
 @80100 = ~I understand. He sounds like quite a jerk. I'll happily help you and make him leave Baldur's Gate.~
 @80101 = ~Mhm. Sorry, but I'm not interested. I think you'll need to look for someone else to help you.~
 @80102 = ~I'm glad to hear that!~
-@80103 = ~Now, the tricky part is that he doesn't have a home of his own. He's usually using other girls' places to rest, or taverns. To make it even more challanging, I need to know the job's done in three days. After that, I need to leave the city and I want to know Petunia's fine and will no longer be bother by that fool. But there is someone who may know where to find him.~
+@80103 = ~Now, the tricky part is that he doesn't have a home of his own. He's usually using other girls' places to rest, or taverns. To make it even more challenging, I need to know the job's done in three days. After that, I need to leave the city and I want to know Petunia's fine and will no longer be bother by that fool. But there is someone who may know where to find him.~
 @80104 = ~A family member? A friend? Some Colleague?~
 @80105 = ~You know what? I think I changed my mind. Sorry, but you'll need to work on your own on this.~
 @80106 = ~His friend, Mallandrea.~
@@ -1488,7 +1488,7 @@ Weight: 0~
 @80146 = ~It is. He's gone.~
 @80147 = ~I'm working on it.~
 @80148 = ~Good! I won't ask pointless questions, I'm satisfied with just the information he won't cause me or my friend any more problems.~
-@80149 = ~Good job. And as I promissed, I've got something for you. Five hundred an a little something that someone like you can find pretty useful.~
+@80149 = ~Good job. And as I promised, I've got something for you. Five hundred an a little something that someone like you can find pretty useful.~
 @80150 = ~I must say that whoever you're looking for, that someone is in quite some trouble. And don't bother asking me if I heard you're looking for someone. Half of this city is looking for someone or something, and the other half is running from something. That's called life.~
 
 // this block is straight text replacements for existing durlyle/delainy lines. Any alterations here are for where the
@@ -1503,7 +1503,7 @@ Weight: 0~
 // new name/descript for bandit scalps
 @100001 = ~Bronze Badge~
 @100002 = ~This small bronze badge is attached to a small, fine chain. It was taken off the body of a bandit, and may be of value to the right buyer.~
-// for the rest of these, it's the original lines but the scalp references ae changed to bronze badges
+// for the rest of these, it's the original lines but the scalp references are changed to bronze badges
 // bgee strref 19466
 @100003 = ~The bandit raids have been getting worse since you returned from Nashkel. I used to think that they were just your usual brigands out to make a quick buck in troubled times, but not anymore. They're working for someone... Damn it, this is a fine mess, isn't it? One way or another, I've got to get my troops back to the Gate! I'll pay 50 gold pieces for every bronze bandit badge you can bring me--and spread the news. Some of the merchants in the region have also decided to pitch in and give money for the bandit badges, but I'll give you the best price. I want this whole region cleared, and I want to know what in the Nine Hells is going on here.~
 // gee strref 19469

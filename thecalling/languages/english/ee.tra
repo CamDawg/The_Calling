@@ -79,6 +79,8 @@ Equipped abilities:
 
 Weight: 1~
 
+@1050 = ~You could have done better—much better—but we shall muddle through regardless.~
+
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////                                                  \\\\\
@@ -212,6 +214,23 @@ Requires:
  13 Strength
 
 Weight: 14~
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Peaceful Kaishas resolution                      \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+// em dashes, em dashes everywhere
+@21606 = ~We were forced to fight, Kaishas, and we fought well—do you really think you can stop us boarding this ship?~
+@21608 = ~Die, then—if you are a monster, I shall treat you as one.~
+@21619 = ~You can trust us. We'll tell no one about your people—it will be as if we never came to this place.~
+@21626 = ~And now I do. Prepare yourself, Kaishas—this ends now.~
+@21627 = ~This grows ridiculous. Your ingratitude sickens me—I'd hoped that I wouldn't need to see you as a monster, but it looks as if I was wrong.~
+@21650 = ~I am no sailor. I stay to prepare place for my people. For generations we have been trapped on island. It is time to return home to the land of grandfathers' birth. They needed charts and I needed adventurers who do not ask too much questions. Yet you have failed. I ask again—where is Kaishas?~
+@21651 = ~"Lift" it? My foolish mate, what have you told them? It is not a curse to be lifted—it is a gift to be savored! It can only be "cured" by killing the chieftain of the werewolves. I am chieftain and I judge you unworthy to run with my pack. You will die here today. To me Baresh! A bloody reckoning is at hand!~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -471,7 +490,7 @@ Weight: 2~
 The cave is free of corruption and the Dreamheart has a new book to consume. The matter has been settled, and the spirit rests content in its cave.~ 
 @60149 = ~Dreamheart
 
-I have had a prophetic dream involving a fantastical version of the cave in the archaelogical dig site. I feel compelled to return and investigate.~ 
+I have had a prophetic dream involving a fantastical version of the cave in the archaeological dig site. I feel compelled to return and investigate.~ 
 @60150 = ~Dreamheart
 
 I met Dreamheart, a spirit living in the cave. It wished to bend me to a task of which I wanted no part.~ 
@@ -649,7 +668,7 @@ Weight: 0~
 STATISTICS:
 
 Combat abilities:
-– Each succesful hit has a 75% chance to cause additional 1 cold damage
+– Each successful hit has a 75% chance to cause additional 1 cold damage
 
 THAC0: +1
 Damage: 1d6+1 (crushing)
@@ -686,7 +705,7 @@ Equipped abilities:
 – May only be removed with a Remove Curse spell
 
 Combat abilities:
-– Each succesful hit has a 10% chance to lower your magic resistance by 2% for 3 rounds. That vicious curse is very amusing to this weapon so it will laugh at you each time that happens... what can be also quite annoying and, to be quite frank, really rude
+– Each successful hit has a 10% chance to lower your magic resistance by 2% for 3 rounds. That vicious curse is very amusing to this weapon so it will laugh at you each time that happens... what can be also quite annoying and, to be quite frank, really rude
 
 THAC0: +2
 Damage: 1d4+2 (piercing)
