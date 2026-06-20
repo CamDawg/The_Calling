@@ -15,6 +15,6 @@ THEN
   RESPONSE #100
     EraseJournalEntry(@70204) 
     AddJournalEntry(@70205,QUEST)
-    SetGlobal("CDMonkCallingEnemy0","%CoastWay%",1)
+    SetGlobal("CDMonkCallingEnemy0","%CoastWay%",2)
 END
   
