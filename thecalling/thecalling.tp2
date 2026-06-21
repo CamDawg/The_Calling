@@ -2116,3 +2116,28 @@ END ELSE ACTION_IF game_is_bgt BEGIN
     BUT_ONLY
 
 END
+
+ACTION_IF MOD_IS_INSTALLED ~sotsc.tp2~ 0 BEGIN // shades of the sword coast
+  
+  COPY ~weidu.log~ ~weidu.log~ // use - so even if we do accidentally change something, no harm done
+    REPLACE_EVALUATE CASE_INSENSITIVE "\(~.+sotsc\.tp2~ #\)\([0-9]+\)" BEGIN 
+      PATCH_MATCH MATCH2 WITH
+        1 BEGIN SPRINT sotsc_lang ~italian~ END
+        2 BEGIN SPRINT sotsc_lang ~korean~ END
+        3 BEGIN SPRINT sotsc_lang ~russian~ END
+        4 BEGIN SPRINT sotsc_lang ~polish~ END
+        5 BEGIN SPRINT sotsc_lang ~german~ END
+        6 BEGIN SPRINT sotsc_lang ~spanish~ END
+        7 BEGIN SPRINT sotsc_lang ~schinese~ END
+        8 BEGIN SPRINT sotsc_lang ~portuguese~ END
+        DEFAULT SPRINT sotsc_lang ~english~
+      END  
+    END ~%MATCH1%%MATCH2%~  
+    BUT_ONLY
+    
+  OUTER_SPRINT calling_lang ~%LANGUAGE%~  
+  
+  COPY ~thecalling/lib/compat_sotsc_common.tpa~ ~weidu_external/thecalling/lib/compat_sotsc_common.tpa~ EVALUATE_BUFFER
+  REINCLUDE ~weidu_external/thecalling/lib/compat_sotsc_common.tpa~
+
+END

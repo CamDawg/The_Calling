@@ -1701,3 +1701,9 @@ A girl named Chloe told us that someone named officer Vai is waiting to speak wi
 @100010 = ~In want of bandit badges.
 
 We had a good business on selling bandit badges to officer Jessa Vai of the Flaming Fist, but she has received an order from Baldur's Gate headquarters to return there to make a report on the matter of eliminating the bandit threat.~
+
+// sotsc compat - these were originally @25, 26, 31, 32 in l#plast.tra
+@100011 = ~Hmm, only if you take care of some... weeds. I can give you one flower for every five bronze badges you take from those crude bandits.~
+@100012 = ~I have the badges right here.~
+@100013 = ~Right. Five badges for one of my beautiful flowers. Take good care of it.~
+@100014 = ~...hmm, perhaps I should sell those badges for some compost.~

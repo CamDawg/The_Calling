@@ -1,0 +1,22 @@
+
+COPY ~weidu.log~ ~weidu.log~ // use - so even if we do accidentally change something, no harm done
+  REPLACE_EVALUATE CASE_INSENSITIVE "\(~.+thecalling\.tp2~ #\)\([0-9]+\)" BEGIN 
+    PATCH_MATCH MATCH2 WITH
+      1 BEGIN SPRINT calling_lang ~czech~ END
+      2 BEGIN SPRINT calling_lang ~french~ END
+      3 BEGIN SPRINT calling_lang ~german~ END
+      4 BEGIN SPRINT calling_lang ~italian~ END
+      5 BEGIN SPRINT calling_lang ~korean~ END
+      6 BEGIN SPRINT calling_lang ~polish~ END
+      7 BEGIN SPRINT calling_lang ~russian~ END
+      8 BEGIN SPRINT calling_lang ~spanish~ END
+      8 BEGIN SPRINT calling_lang ~schinese~ END
+      DEFAULT SPRINT calling_lang ~english~
+    END  
+  END ~%MATCH1%%MATCH2%~  
+  BUT_ONLY
+  
+OUTER_SPRINT sotsc_lang ~%LANGUAGE%~  
+
+COPY ~thecalling/lib/compat_sotsc_common.tpa~ ~weidu_external/thecalling/lib/compat_sotsc_common.tpa~ EVALUATE_BUFFER
+REINCLUDE ~weidu_external/thecalling/lib/compat_sotsc_common.tpa~

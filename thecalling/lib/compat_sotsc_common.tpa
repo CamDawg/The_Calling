@@ -1,0 +1,31 @@
+// for now, only english available - use code above when more come on line
+ACTION_IF (("%sotsc_lang%" STRING_COMPARE_CASE "english" = 0) AND
+           ("%calling_lang%" STRING_COMPARE_CASE "english" = 0)) BEGIN             
+  OUTER_SET lang_check = 1
+END ELSE BEGIN
+  OUTER_SET lang_check = 0  
+END 
+
+// now, make sure these exist  
+ACTION_IF lang_check BEGIN  
+
+  WITH_TRA ~sotsc/translations/%sotsc_lang%/l#plast.tra~ BEGIN 
+
+    OUTER_SET sotsc1 = RESOLVE_STR_REF(@25)
+    OUTER_SET sotsc2 = RESOLVE_STR_REF(@26)
+    OUTER_SET sotsc3 = RESOLVE_STR_REF(@31)
+    OUTER_SET sotsc4 = RESOLVE_STR_REF(@32)
+    
+  END
+
+  WITH_TRA ~thecalling/languages/%calling_lang%/game.tra~ BEGIN 
+
+    STRING_SET_EVALUATE sotsc1 @100011
+    STRING_SET_EVALUATE sotsc2 @100012
+    STRING_SET_EVALUATE sotsc3 @100013
+    STRING_SET_EVALUATE sotsc4 @100014
+    
+  END 
+  
+END  
+
