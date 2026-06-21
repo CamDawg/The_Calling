@@ -31,6 +31,8 @@
 @30000 = ~The Movanic Cult~
 
 @40000 = ~Exotic Item Pack~
+@40023 = ~Add exotic items~
+@40024 = ~Add exotic items and remove exotic items added by BGEE~
 
 @50000 = ~Make All Calling Quests Open to All Classes~
 

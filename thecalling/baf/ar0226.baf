@@ -1,0 +1,16 @@
+IF
+	Global("CDninja","MYAREA",0)
+  Contains("sw1h49","Container3")
+THEN
+	RESPONSE #100
+		SetGlobal("CDninja","MYAREA",1)
+		ActionOverride("Container3",DestroyItem("sw1h49"))
+END
+
+IF
+	Global("CDninja","MYAREA",0)
+  !Contains("sw1h49","Container3")
+THEN
+	RESPONSE #100
+		SetGlobal("CDninja","MYAREA",1)
+END

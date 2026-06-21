@@ -1794,243 +1794,33 @@ END
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN @40000 DESIGNATED 40
+/////                                                  \\\\\
+///// Exotic Items Pack - just add items               \\\\\
+/////                                                  \\\\\
+
+BEGIN @40023 DESIGNATED 40
+SUBCOMPONENT @40000 
 GROUP @9
 REQUIRE_PREDICATE GAME_IS ~bgee tutu tutu_totsc bgt eet~ @0
 REQUIRE_PREDICATE NOT MOD_IS_INSTALLED ~CDTWEAKS/SETUP-CDTWEAKS.TP2~ ~1090~ @1 // skip if already installed by tweaks anthology
 LABEL ~cd_the_calling_exotic_items~
 
-ACTION_IF enhanced_edition THEN BEGIN // BGEE, eet
-  
-  // since adding tsu-o-shi to krumm overwrites his club +1, find new home for it
-  COPY_EXISTING ~caldo.cre~ ~override~ // move club +1 to krumm's companion
-    REPLACE_CRE_ITEM ~blun36~ #0 #0 #0 ~NONE~ ~WEAPON1~ EQUIP
-    // match proficiency for new weapon
-    READ_BYTE 0x72 prof_blunt
-    READ_BYTE 0x73 prof_spike
-    PATCH_IF prof_spike > prof_blunt BEGIN
-      WRITE_BYTE 0x72 prof_spike
-    END
+OUTER_SET remove_bgee_exotics = 0
+INCLUDE ~thecalling/lib/exotic.tpa~
 
-END
+/////                                                  \\\\\
+///// Exotic Items Pack - just add items               \\\\\
+/////                                                  \\\\\
 
-COMPILE ~thecalling/dlg/exotic.d~ EVALUATE_BUFFER // fixes Gullykin cleric's dlg file to open new store
+BEGIN @40024 DESIGNATED 41
+SUBCOMPONENT @40000 
+GROUP @9
+REQUIRE_PREDICATE GAME_IS ~bgee eet~ @0
+REQUIRE_PREDICATE NOT MOD_IS_INSTALLED ~CDTWEAKS/SETUP-CDTWEAKS.TP2~ ~1090~ @1 // skip if already installed by tweaks anthology
+LABEL ~cd_the_calling_exotic_items_remove_bgee~
 
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~%tutu_var%tem4003.sto~ THEN BEGIN // if Gullykin does not have a store already
-
-  COPY_EXISTING ~%tutu_var%tem4802.sto~ ~override/%tutu_var%tem4003.sto~ // clones and renames Temple of Helm
-    SAY 0x0c @40022
-
-END
-
-// artwork
-COPY ~thecalling/bam/ccdioun1.bam~ ~override~
-     ~thecalling/bam/cdiammo.bam~  ~override~
-     ~thecalling/bam/cdipotbg.bam~ ~override~
-     ~thecalling/bam/cdpammo.bam~  ~override~
-     ~thecalling/bam/cdplbag1.bam~ ~override~
-     ~thecalling/bam/cdplbag2.bam~ ~override~
-     ~thecalling/bam/cdplqiv1.bam~ ~override~
-     ~thecalling/bam/cdplqiv2.bam~ ~override~
-     ~thecalling/bam/cdppotbg.bam~ ~override~
-     ~thecalling/bam/icdioun1.bam~ ~override~
-     ~thecalling/bam/icdioun2.bam~ ~override~
-     ~thecalling/bam/icdkat2.bam~  ~override~
-
-// add and name items
-LAF cd_make_bag_from_ammo INT_VAR name = RESOLVE_STR_REF(@40001) desc = RESOLVE_STR_REF(@40002)                                  // create quiver of plenty +0 
-                          STR_VAR source = EVAL ~%tutu_var%arow01~ output = cdplquiv icon_i = ~cdplqiv1~ icon_c = ~cdplqiv2~ END // from basic arrows
-LAF cd_make_bag_from_ammo INT_VAR name = RESOLVE_STR_REF(@40003) desc = RESOLVE_STR_REF(@40004)                                  // create case of plenty +0
-                          STR_VAR source = EVAL ~%tutu_var%bolt01~ output = cdplcase icon_i = ~cdplqiv1~ icon_c = ~cdplqiv2~ END // from basic bolts
-LAF cd_make_bag_from_ammo INT_VAR name = RESOLVE_STR_REF(@40005) desc = RESOLVE_STR_REF(@40006)                                  // create bag of plenty +0
-                          STR_VAR source = EVAL ~%tutu_var%bull01~ output = cdplbag  icon_i = ~cdplbag2~ icon_c = ~cdplbag1~ END // from basic bullets
- 
-COPY_EXISTING ~helm18.itm~ ~override/cdioun1.itm~ // create ioun stones from existing stone
-              ~helm18.itm~ ~override/cdioun2.itm~
-  WRITE_ASCIIE 0x3a ~i%DEST_RES%~ #8 // icon, inventory
-  WRITE_ASCII  0x58 ~ccdioun1~    #8 // icon, description
-  WRITE_LONG   0x4c 2                // weight  
-  LPF DELETE_EFFECT END // delete all effects
-  
-COPY_EXISTING ~cdioun1.itm~ ~override~  // Deep Purple Ioun Stone
-  SAY 0x0c @40007
-  SAY 0x54 @40008
-  WRITE_LONG 0x34 600 // price
-  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 63 target = 1 timing = 2 END // add infravision
-  
-COPY_EXISTING ~cdioun2.itm~ ~override~  // Flickering White Ioun Stone
-  SAY 0x0c @40009
-  SAY 0x54 @40010
-  WRITE_LONG 0x34 1200 // price
-  LPF ADD_ITEM_EQEFFECT INT_VAR opcode =  28 target = 1 parameter1 = 10 timing = 2 END // add cold resistance
-  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 142 target = 1 parameter2 = 25 timing = 2 END // add cold resistance portrait icon
-
-COPY_EXISTING ~sw1h55.itm~ ~override/cdkat2.itm~ // create tsu-o-shi from generic katana +2
-  SAY 0x0c @40013
-  SAY 0x54 @40014
-  WRITE_LONG  0x18 (THIS BOR BIT4) // adds cursed flag
-  WRITE_LONG  0x34 1               // price
-  WRITE_SHORT 0x42 100             // lore
-  WRITE_ASCII 0x3a ~icdkat2~ #8    // icon, inventory
-  LPF ALTER_HEADER STR_VAR icon = icdkat2 END // icon, ability headers
-  LPF ALTER_EFFECT INT_VAR silent = 1 check_headers = 0 match_opcode = 7 match_parameter2 = 16 parameter1 = 45 END // color: head/blade/staff major
-  LPF ALTER_EFFECT INT_VAR silent = 1 check_headers = 0 match_opcode = 7 match_parameter2 = 20 parameter1 = 44 END // color: grip/staff minor
-  LPF ALTER_EFFECT INT_VAR silent = 1 check_headers = 0 match_opcode = 7 match_parameter2 = 21 parameter1 = 64 END // color: head/blade minor
-  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 142 target = 1 parameter2 = 35 timing = 2 insert_point = 999 END // display cursed portrait icon
-  LPF ADD_ITEM_EFFECT INT_VAR type = 1 opcode = 139 target = 1 parameter1 = RESOLVE_STR_REF(@40018) timing = 1 probability1 =  4 probability2 =  0 END // charisma modification string
-  LPF ADD_ITEM_EFFECT INT_VAR type = 1 opcode =   6 target = 1 parameter1 = "-1"                    timing = 1 probability1 =  4 probability2 =  0 END // charisma modification
-  LPF ADD_ITEM_EFFECT INT_VAR type = 1 opcode = 139 target = 1 parameter1 = RESOLVE_STR_REF(@40016) timing = 1 probability1 =  9 probability2 =  5 END // constitution modification string
-  LPF ADD_ITEM_EFFECT INT_VAR type = 1 opcode =  10 target = 1 parameter1 = "-1"                    timing = 1 probability1 =  9 probability2 =  5 END // constitution modification
-  LPF ADD_ITEM_EFFECT INT_VAR type = 1 opcode = 139 target = 1 parameter1 = RESOLVE_STR_REF(@40017) timing = 1 probability1 = 14 probability2 = 10 END // dexterity modification string
-  LPF ADD_ITEM_EFFECT INT_VAR type = 1 opcode =  15 target = 1 parameter1 = "-1"                    timing = 1 probability1 = 14 probability2 = 10 END // dexterity modification
-  LPF ADD_ITEM_EFFECT INT_VAR type = 1 opcode = 139 target = 1 parameter1 = RESOLVE_STR_REF(@40020) timing = 1 probability1 = 19 probability2 = 15 END // intelligence modification string
-  LPF ADD_ITEM_EFFECT INT_VAR type = 1 opcode =  19 target = 1 parameter1 = "-1"                    timing = 1 probability1 = 19 probability2 = 15 END // intelligence modification
-  LPF ADD_ITEM_EFFECT INT_VAR type = 1 opcode = 139 target = 1 parameter1 = RESOLVE_STR_REF(@40021) timing = 1 probability1 = 24 probability2 = 20 END // strength modification string
-  LPF ADD_ITEM_EFFECT INT_VAR type = 1 opcode =  44 target = 1 parameter1 = "-1"                    timing = 1 probability1 = 24 probability2 = 20 END // strength modification
-  LPF ADD_ITEM_EFFECT INT_VAR type = 1 opcode = 139 target = 1 parameter1 = RESOLVE_STR_REF(@40015) timing = 1 probability1 = 29 probability2 = 25 END // wisdom modification string
-  LPF ADD_ITEM_EFFECT INT_VAR type = 1 opcode =  49 target = 1 parameter1 = "-1"                    timing = 1 probability1 = 29 probability2 = 25 END // wisdom modification
-  LPF ADD_ITEM_EFFECT INT_VAR type = 1 opcode = 139 target = 1 parameter1 = RESOLVE_STR_REF(@40019) timing = 1 probability1 = 34 probability2 = 30 END // hit point modification string
-  LPF ADD_ITEM_EFFECT INT_VAR type = 1 opcode =  18 target = 1 parameter1 = "-5"                    timing = 1 probability1 = 34 probability2 = 30 END // hit point modification
-
-EXTEND_BOTTOM ~%CloakwoodMines_L4_BCS%.bcs~           ~thecalling/baf/_ar1803.baf~ // adds Contagion scroll to Davaeorn's loot
-EXTEND_BOTTOM ~%Lighthouse_BlackAlaricsCave_BCS%.bcs~ ~thecalling/baf/_ar3601.baf~ // adds Ninja-To +0 to Sirine cave loot
-
-COPY_EXISTING ~%tutu_var%meilum.cre~ ~override~ // adds katana +0 to Meilum by replacing primary weapon
-//  REPLACE_CRE_ITEM ~sw1h43~ #0 #0 #0 ~NONE~ ~WEAPON1~ EQUIP
-  LPF ALTER_CREATURE_ITEM 
-    STR_VAR item       = "sw1h43"
-            match_item = EVAL "%tutu_var%sw1h05"
-    RET     meilum_slot = replaced_slot 
-            meilum_item = replaced_item
-  END 
-  
-ACTION_IF meilum_slot < 0 BEGIN // if <0, item was not placed on meilum
-  // plan b for placement
-END
-
-COPY_EXISTING ~%tutu_var%krumm.cre~  ~override~ // adds katana +2 to Krumm by replacing primary weapon
-  REPLACE_CRE_ITEM ~cdkat2~ #0 #0 #0 ~NONE~ ~WEAPON1~ EQUIP
-  READ_BYTE 0x6e prof_lsword // proficiency update since weapon type changes
-  READ_BYTE 0x72 prof_blunt
-  PATCH_IF prof_blunt > prof_lsword BEGIN
-    WRITE_BYTE 0x6e prof_blunt
-  END
-
-COPY_EXISTING ~%tutu_var%davaeo.cre~ ~override~ // adds Flickering White Ioun stone to helmet slot
-  ADD_CRE_ITEM ~cdioun2~ #0 #0 #0 ~NONE~ ~HELMET~
-
-COPY_EXISTING ~%tutu_var%haseo.cre~  ~override~ // adds katana +1 to Haseo by moving primary weapon to offhand
-  REPLACE_CRE_ITEM ~sw1h44~           #0 #0 #0 ~NONE~ ~WEAPON1~ EQUIP
-  ADD_CRE_ITEM     ~%tutu_var%sw1h05~ #0 #0 #0 ~NONE~ ~SHIELD~
-
-COPY_EXISTING ~%tutu_var%desret.cre~ ~override~ // adds wakizashi +1 to Desreta by moving primary weapon to offhand
-  REPLACE_CRE_ITEM ~sw1h47~           #0 #0 #0 ~NONE~ ~WEAPON1~ EQUIP
-  ADD_CRE_ITEM     ~%tutu_var%sw1h05~ #0 #0 #0 ~NONE~ ~SHIELD~
-  READ_BYTE 0x6e prof_lsword // proficiency update since weapon type changes
-  READ_BYTE 0x6f prof_ssword
-  PATCH_IF prof_lsword > prof_ssword BEGIN
-    WRITE_BYTE 0x6f prof_lsword
-  END
-
-COPY_EXISTING ~%tutu_var%hakt.cre~   ~override~ // adds wakizashi +0 to Hakt by replacing primary melee weapon
-  REPLACE_CRE_ITEM ~sw1h46~ #0 #0 #0 ~NONE~ ~WEAPON2~
-  READ_BYTE 0x6e prof_lsword // proficiency update since weapon type changes
-  READ_BYTE 0x6f prof_ssword
-  PATCH_IF prof_lsword > prof_ssword BEGIN
-    WRITE_BYTE 0x6f prof_lsword
-  END
-
-COPY_EXISTING ~%tutu_var%maneir.cre~ ~override~ // adds scimitar +1 to Maneira by replacing primary melee weapon
-  REPLACE_CRE_ITEM ~%tutu_var%sw1h22~ #0 #0 #0 ~NONE~ ~WEAPON2~
-  READ_BYTE 0x6e prof_lsword // proficiency update since weapon type changes
-  READ_BYTE 0x6f prof_ssword
-  PATCH_IF prof_ssword > prof_lsword BEGIN
-    WRITE_BYTE 0x6e prof_ssword
-  END
-
-COPY_EXISTING ~%tutu_scriptbg%sendai%eet_var%.cre~ ~override~ // adds scimitar +1 to Sendai Argrim by replacing offhand weapon
-  REPLACE_CRE_ITEM ~%tutu_var%sw1h22~ #0 #0 #0 ~NONE~ ~SHIELD~
-
-COPY_EXISTING ~%tutu_scripts%toblack.sto~ ~override~  // adds Ninja-To +1 to Black Lily's store
-  ADD_STORE_ITEM ~sw1h49~ AFTER  ~sw1h07 _sw1h07~ #0 #0 #0 ~IDENTIFIED~ #1
-
-COPY_EXISTING ~%tutu_scripth%ighhedg.sto~ ~override~  // adds lev 1, 2 scrolls to High Hedge
-              ~%tutu_var%sto0703.sto~     ~override~  // adds lev 1, 2 scrolls to Sorcerous Sundries
-  ADD_STORE_ITEM ~scrl6d~ AFTER ~scrl70 _scrl70~ #0 #0 #0 ~IDENTIFIED~ #2 // find familiar
-  ADD_STORE_ITEM ~scrl5u~ AFTER ~scrl70 _scrl70~ #0 #0 #0 ~IDENTIFIED~ #2 // reflected image
-  ADD_STORE_ITEM ~scrla6~ AFTER ~scrl70 _scrl70~ #0 #0 #0 ~IDENTIFIED~ #2 // spook
-  ADD_STORE_ITEM ~scrl6e~ AFTER ~scrl89 _scrl89~ #0 #0 #0 ~IDENTIFIED~ #2 // pw: sleep
-
-COPY_EXISTING ~%tutu_var%sto0703.sto~ ~override~  // adds lev 3, 4 scrolls to Sorcerous Sundries
-  ADD_STORE_ITEM ~scrl6l~ AFTER ~scrl1k _scrl1k~ #0 #0 #0 ~IDENTIFIED~ #2 // hold undead
-  ADD_STORE_ITEM ~scrl6i~ AFTER ~scrl1k _scrl1k~ #0 #0 #0 ~IDENTIFIED~ #2 // protection from cold
-  ADD_STORE_ITEM ~scrla5~ AFTER ~scrl1k _scrl1k~ #0 #0 #0 ~IDENTIFIED~ #2 // MMM
-  ADD_STORE_ITEM ~scrl6r~ AFTER ~scrl5i _scrl5i~ #0 #0 #0 ~IDENTIFIED~ #2 // spider spawn
-
-COPY_EXISTING ~%tutu_scripth%ighhedg.sto~ ~override~ // High Hedge
-  ADD_STORE_ITEM ~cdioun1~ LAST #0 #0 #0 ~IDENTIFIED~ #1 // purple ioun stone
-
-COPY_EXISTING ~%tutu_var%taerum.sto~    ~override~ // Thunderhammer Smithy
-  ADD_STORE_ITEM ~cdplcase~ LAST #0 #0 #0 ~IDENTIFIED~ #1 // case of plenty
-
-COPY_EXISTING ~%tutu_var%sto4803.sto~ ~override~ // Nashkel General Store
-  ADD_STORE_ITEM ~cdplbag~ LAST #0 #0 #0 ~IDENTIFIED~ #1 // bag of plenty
-
-COPY_EXISTING ~%tutu_var%sto4909.sto~   ~override~ // Carnival
-  ADD_STORE_ITEM ~cdplquiv~ LAST #0 #0 #0 ~IDENTIFIED~ #1 // quiver of plenty
-
-COPY_EXISTING_REGEXP GLOB ~^.+\.sto$~ ~override~  // adds generic scimitars to stores that sell short swords if not present already
-  READ_LONG 0x34 sale_off  ELSE 0
-  READ_LONG 0x38 sale_num  ELSE 0
-  READ_LONG 0x2c itm_off   ELSE 0
-  READ_LONG 0x4c drink_off ELSE 0
-  READ_LONG 0x70 cure_off  ELSE 0
-  SET scimitar_insert = 0
-  FOR (index = 0 ; index < sale_num ; ++index) BEGIN
-    READ_ASCII (sale_off +        (index * 0x1c)) item
-    PATCH_IF ("%item%" STRING_COMPARE_REGEXP "^_?[Ss][Ww]1[Hh]07$" = 0) BEGIN // short sword
-      READ_ASCII (sale_off +        (index * 0x1c)) clone (28) // read short sword entry
-      SET scimitar_insert = (index + 1) // sets right after as insert point
-    END ELSE
-    PATCH_IF ("%item%" STRING_COMPARE_REGEXP "^_?[Ss][Ww]1[Hh]20$" = 0) BEGIN // scimitar
-      SET scimitar_insert = 0 // scimitars are already present
-      SET index = sale_num    // kills loop
-    END
-  END
-  PATCH_IF (scimitar_insert > 0) BEGIN // short swords present but not scimitars
-    INSERT_BYTES   (sale_off + (scimitar_insert * 0x1c)) 28
-      WRITE_ASCIIE (sale_off + (scimitar_insert * 0x1c)) ~%clone%~              // clones short sword entry
-      WRITE_ASCIIE (sale_off + (scimitar_insert * 0x1c)) ~%tutu_var%sw1h20~ #8  // scimitar
-    // correcting offsets and such
-    WRITE_LONG 0x38 (sale_num + 1)
-    PATCH_FOR_EACH off IN 0x2c 0x4c 0x70 BEGIN // item, drink, cure offsets
-      READ_LONG off val                        // read offset
-      PATCH_IF val > sale_off BEGIN            // if after for-sale list...
-        WRITE_LONG off (THIS + 0x1c)           // push back for new scimitar
-      END
-    END
-  END
-  BUT_ONLY
-
-// if Ashes of Embers is installed, the katana and quivers should be usable by all
-ACTION_IF ((FILE_EXISTS_IN_GAME ~j#swsoa.txt~) OR                        // SoA version of AoE (for BGT)
-           (FILE_EXISTS_IN_GAME ~J#ToBAoE.txt~) OR                       // Tutu version of AoE
-           (FILE_EXISTS_IN_GAME ~j#sensibleweaponsmods.txt~)) THEN BEGIN // mod-only version of AoE
-
-  COPY_EXISTING ~cdplquiv.itm~ ~override~ // quiver of plenty +0
-                ~cdplcase.itm~ ~override~ // case of plenty +0
-                ~cdplbag.itm~  ~override~ // bag of plenty +0
-                ~cdkat2.itm~   ~override~ // katana +2
-    WRITE_LONG 0x1e 0 // remove all class/race/align unusabilities
-    WRITE_BYTE 0x29 0 // remove all kit unusabilities
-    WRITE_BYTE 0x2b 0 // remove all kit unusabilities
-    WRITE_BYTE 0x2d 0 // remove all kit unusabilities
-    WRITE_BYTE 0x2f 0 // remove all kit unusabilities
-
-  COPY_EXISTING ~cdkat2.itm~ ~override~   // katana +2
-    WRITE_BYTE 0x2b BIT1 // remove all kit unusabilities except for Beastmaster
-
-END
+OUTER_SET remove_bgee_exotics = 1
+INCLUDE ~thecalling/lib/exotic.tpa~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
