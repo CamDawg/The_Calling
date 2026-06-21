@@ -202,7 +202,7 @@ END
 /////                                                  \\\\\
 
 // largo and iris at priest
-CHAIN IF ~Global("CDBracerQuest","GLOBAL",80)~ THEN CDLARGO PriestNoHelp @1314 DO ~SetGlobal("CDBracerQuest","GLOBAL",19)~
+CHAIN IF WEIGHT #-1 ~Global("CDBracerQuest","GLOBAL",80)~ THEN CDLARGO PriestNoHelp @1314 DO ~SetGlobal("CDBracerQuest","GLOBAL",19)~
 == ~%tutu_var%ALVAHE~ @1315
 == CDLARGO @1316
 == ~%tutu_var%ALVAHE~ @1317
@@ -217,7 +217,7 @@ CHAIN IF ~~ THEN ~%tutu_var%THALAN~ Accepted @1008
 == ~%tutu_var%MELICA~ @1012
 == ~%tutu_var%THALAN~ @1013
 == ~%tutu_var%MELICA~ @1014
-== ~%tutu_var%THALAN~ @1015 DO ~SetGlobal("CDBracerQuest","GLOBAL",1)~
+== ~%tutu_var%THALAN~ @1015 DO ~SetGlobal("CDPlayerHasCalling","GLOBAL",1) AddJournalEntry(@1337,QUEST) SetGlobal("CDBracerQuest","GLOBAL",1)~
 EXIT
 
 // begin incantation
@@ -247,7 +247,8 @@ END ~%tutu_var%THALAN~ StartDiviningAlready
 CHAIN IF ~~ THEN CDMELI MeliLeaves @1125
 == CDMINER1 @1126
 == CDMINER2 @1127
-== CDMELI @1128 DO ~SetGlobalTimer("CDMelicampReturns","GLOBAL",FOUR_DAYS)
+== CDMELI @1128 DO ~AddJournalEntry(@1343,QUEST)
+                    SetGlobalTimer("CDMelicampReturns","GLOBAL",FOUR_DAYS)
                     SetGlobal("CDBracerQuest","GLOBAL",13)
                     ActionOverride("cdminer1",EscapeArea())
                     ActionOverride("cdminer2",EscapeArea())
@@ -333,7 +334,7 @@ APPEND CDLARGO
   END
   
   IF ~~ THEN BEGIN OuttaHere SAY @1222
-    IF ~~ THEN DO ~SetGlobal("CDBracerQuest","GLOBAL",80)~ EXIT
+    IF ~~ THEN DO ~AddJournalEntry(@1355,QUEST) SetGlobal("CDBracerQuest","GLOBAL",80)~ EXIT
   END
   
   IF ~~ THEN BEGIN ExtortionThreat SAY @1223
@@ -366,7 +367,8 @@ APPEND CDLARGO
   END
   
   IF ~~ THEN BEGIN HighHedge SAY @1237
-    IF ~~ THEN DO ~SetGlobal("CDBracerQuest","GLOBAL",19)~ EXIT
+    IF ~~ THEN DO ~AddJournalEntry(@1356,QUEST) SetGlobal("CDBracerQuest","GLOBAL",19)~ EXIT
+    IF ~Global("CDBracerQuest","GLOBAL",80)~ THEN DO ~AddJournalEntry(@1357,QUEST) SetGlobal("CDBracerQuest","GLOBAL",19)~ EXIT
   END
   
   IF ~~ THEN BEGIN Mage2 SAY @1238
@@ -615,15 +617,69 @@ END
 APPEND ~%tutu_var%TAEROM~
 
   IF WEIGHT #-1 ~Global("CDBracerQuest","GLOBAL",25)~ THEN BEGIN BracersGone SAY @1303
-    IF ~~ THEN DO ~SetGlobal("CDBracerQuest","GLOBAL",26)~ GOTO FinallyDone
-    IF ~Global("CDMakeBracers","MYAREA",1)~ THEN DO ~SetGlobal("CDBracerQuest","GLOBAL",26)~ GOTO HeresItem
+    IF ~~ THEN DO ~EraseJournalEntry(@1336)
+                   EraseJournalEntry(@1337)
+                   EraseJournalEntry(@1338)
+                   EraseJournalEntry(@1339)
+                   EraseJournalEntry(@1340)
+                   EraseJournalEntry(@1341)
+                   EraseJournalEntry(@1342)
+                   EraseJournalEntry(@1343)
+                   EraseJournalEntry(@1344)
+                   EraseJournalEntry(@1345)
+                   EraseJournalEntry(@1346)
+                   EraseJournalEntry(@1347)
+                   EraseJournalEntry(@1348)
+                   EraseJournalEntry(@1349)
+                   EraseJournalEntry(@1350)
+                   EraseJournalEntry(@1351)
+                   EraseJournalEntry(@1352)
+                   EraseJournalEntry(@1353)
+                   EraseJournalEntry(@1354)
+                   EraseJournalEntry(@1355)
+                   EraseJournalEntry(@1356)
+                   EraseJournalEntry(@1357)
+                   EraseJournalEntry(@1360)
+                   EraseJournalEntry(@1361)
+                   AddJournalEntry(@1362,QUEST_DONE)
+                   SetGlobal("CDBracerQuest","GLOBAL",26)~ GOTO FinallyDone
+    IF ~Global("CDMakeBracers","MYAREA",1)~ THEN DO ~EraseJournalEntry(@1336)
+                                                     EraseJournalEntry(@1337)
+                                                     EraseJournalEntry(@1338)
+                                                     EraseJournalEntry(@1339)
+                                                     EraseJournalEntry(@1340)
+                                                     EraseJournalEntry(@1341)
+                                                     EraseJournalEntry(@1342)
+                                                     EraseJournalEntry(@1343)
+                                                     EraseJournalEntry(@1344)
+                                                     EraseJournalEntry(@1345)
+                                                     EraseJournalEntry(@1346)
+                                                     EraseJournalEntry(@1347)
+                                                     EraseJournalEntry(@1348)
+                                                     EraseJournalEntry(@1349)
+                                                     EraseJournalEntry(@1350)
+                                                     EraseJournalEntry(@1351)
+                                                     EraseJournalEntry(@1352)
+                                                     EraseJournalEntry(@1353)
+                                                     EraseJournalEntry(@1354)
+                                                     EraseJournalEntry(@1355)
+                                                     EraseJournalEntry(@1356)
+                                                     EraseJournalEntry(@1357)
+                                                     EraseJournalEntry(@1360)
+                                                     EraseJournalEntry(@1361)
+                                                     AddJournalEntry(@1363,QUEST_DONE)
+                                                     SetGlobal("CDBracerQuest","GLOBAL",26)~ GOTO HeresItem
   END
 
   IF WEIGHT #-1 ~Global("CDBracerQuest","GLOBAL",11)
       GlobalTimerExpired("CDTaeromMakingDevice","GLOBAL")~ THEN BEGIN DeviceDone SAY @1185
-    IF ~~ THEN REPLY @1186 DO ~GiveItemCreate("cddevice",LastTalkedToBy(Myself),1,0,0)
+    IF ~~ THEN REPLY @1186 DO ~EraseJournalEntry(@1348)
+                               AddJournalEntry(@1349,QUEST)
+                               GiveItemCreate("cddevice",LastTalkedToBy(Myself),1,0,0)
                                SetGlobal("CDBracerQuest","GLOBAL",12)~ GOTO SeeYa
-    IF ~~ THEN REPLY @1187 DO ~GiveItemCreate("cddevice",LastTalkedToBy(Myself),1,0,0)
+    IF ~~ THEN REPLY @1187 DO ~EraseJournalEntry(@1348)
+                               AddJournalEntry(@1349,QUEST)
+                               GiveItemCreate("cddevice",LastTalkedToBy(Myself),1,0,0)
                                SetGlobal("CDBracerQuest","GLOBAL",12)
                                StartStore("%tutu_var%TAERUM",LastTalkedToBy(Myself))~ EXIT
   END
@@ -641,11 +697,13 @@ APPEND ~%tutu_var%TAEROM~
   END
   
   IF ~~ THEN BEGIN WheresMeli SAY @1102 = @1103
-    IF ~~ THEN DO ~SetGlobal("CDBracerQuest","GLOBAL",7)~ EXIT
+    IF ~~ THEN DO ~AddJournalEntry(@1341,QUEST) SetGlobal("CDBracerQuest","GLOBAL",7)~ EXIT
   END
   
   IF ~~ THEN BEGIN MakeDevice SAY @1181 = @1182 = @1183
-    IF ~~ THEN DO ~TakePartyItem("cdore")
+    IF ~~ THEN DO ~EraseJournalEntry(@1347)
+                   AddJournalEntry(@1348,QUEST)
+                   TakePartyItem("cdore")
                    DestroyItem("cdore")
                    SetGlobal("CDBracerQuest","GLOBAL",11)
                    SetGlobalTimer("CDTaeromMakingDevice","GLOBAL",TWO_DAYS)~ EXIT
@@ -689,10 +747,62 @@ END
 APPEND ~%tutu_var%THALAN~
 
   IF WEIGHT #-1 ~Global("CDBracerQuest","GLOBAL",21)~ THEN BEGIN IncantationFinished SAY @1272 = @1273
-    IF ~~                                        THEN DO ~SetGlobal("CDBracerQuest","GLOBAL",22) AddexperienceParty(1000)~ GOTO IncantationSucked
-    IF ~Global("CDIncantationRight","MYAREA",1)~ THEN DO ~SetGlobal("CDBracerQuest","GLOBAL",22) AddexperienceParty(2000)~ GOTO IncantationPoor
-    IF ~Global("CDIncantationRight","MYAREA",2)~ THEN DO ~SetGlobal("CDBracerQuest","GLOBAL",23) AddexperienceParty(3000)~ GOTO IncantationGood
-    IF ~Global("CDIncantationRight","MYAREA",3)~ THEN DO ~SetGlobal("CDBracerQuest","GLOBAL",23) AddexperienceParty(4000)~ GOTO IncantationGood
+    IF ~~                                        THEN DO ~EraseJournalEntry(@1336)
+                                                          EraseJournalEntry(@1337)
+                                                          EraseJournalEntry(@1338)
+                                                          EraseJournalEntry(@1339)
+                                                          EraseJournalEntry(@1340)
+                                                          EraseJournalEntry(@1341)
+                                                          EraseJournalEntry(@1342)
+                                                          EraseJournalEntry(@1343)
+                                                          EraseJournalEntry(@1344)
+                                                          EraseJournalEntry(@1345)
+                                                          EraseJournalEntry(@1346)
+                                                          EraseJournalEntry(@1347)
+                                                          EraseJournalEntry(@1348)
+                                                          EraseJournalEntry(@1349)
+                                                          EraseJournalEntry(@1350)
+                                                          EraseJournalEntry(@1351)
+                                                          EraseJournalEntry(@1352)
+                                                          EraseJournalEntry(@1353)
+                                                          EraseJournalEntry(@1354)
+                                                          EraseJournalEntry(@1355)
+                                                          EraseJournalEntry(@1356)
+                                                          EraseJournalEntry(@1357)
+                                                          AddJournalEntry(@1358,QUEST_DONE)
+                                                          SetGlobal("CDBracerQuest","GLOBAL",22) 
+                                                          AddexperienceParty(1000)~ GOTO IncantationSucked
+    IF ~Global("CDIncantationRight","MYAREA",1)~ THEN DO ~EraseJournalEntry(@1336)
+                                                          EraseJournalEntry(@1337)
+                                                          EraseJournalEntry(@1338)
+                                                          EraseJournalEntry(@1339)
+                                                          EraseJournalEntry(@1340)
+                                                          EraseJournalEntry(@1341)
+                                                          EraseJournalEntry(@1342)
+                                                          EraseJournalEntry(@1343)
+                                                          EraseJournalEntry(@1344)
+                                                          EraseJournalEntry(@1345)
+                                                          EraseJournalEntry(@1346)
+                                                          EraseJournalEntry(@1347)
+                                                          EraseJournalEntry(@1348)
+                                                          EraseJournalEntry(@1349)
+                                                          EraseJournalEntry(@1350)
+                                                          EraseJournalEntry(@1351)
+                                                          EraseJournalEntry(@1352)
+                                                          EraseJournalEntry(@1353)
+                                                          EraseJournalEntry(@1354)
+                                                          EraseJournalEntry(@1355)
+                                                          EraseJournalEntry(@1356)
+                                                          EraseJournalEntry(@1357)
+                                                          AddJournalEntry(@1359,QUEST_DONE)
+                                                          SetGlobal("CDBracerQuest","GLOBAL",22) 
+                                                          AddexperienceParty(2000)~ GOTO IncantationPoor
+    IF ~Global("CDIncantationRight","MYAREA",2)~ THEN DO ~AddJournalEntry(@1360,QUEST)
+                                                          SetGlobal("CDBracerQuest","GLOBAL",23) 
+                                                          AddexperienceParty(3000)~ GOTO IncantationGood
+    IF ~Global("CDIncantationRight","MYAREA",3)~ THEN DO ~AddJournalEntry(@1361,QUEST)
+                                                          SetGlobal("CDBracerQuest","GLOBAL",23) 
+                                                          AddexperienceParty(4000)~ GOTO IncantationGood
   END
 
   IF WEIGHT #-1 ~Global("CDBracerQuest","GLOBAL",12)
@@ -745,23 +855,23 @@ APPEND ~%tutu_var%THALAN~
   END
   
   IF ~~ THEN BEGIN DiviningSucks SAY @1203
-    IF ~~ THEN GOTO GoGetBracersAlready
+    IF ~~ THEN DO ~AddJournalEntry(@1350,QUEST)~ GOTO GoGetBracersAlready
   END
   
   IF ~~ THEN BEGIN DiviningPoor SAY @1204
-    IF ~~ THEN GOTO GoGetBracersAlready
+    IF ~~ THEN DO ~AddJournalEntry(@1351,QUEST)~ GOTO GoGetBracersAlready
   END
 
   IF ~~ THEN BEGIN DiviningFair SAY @1205
-    IF ~~ THEN GOTO GoGetBracersAlready
+    IF ~~ THEN DO ~AddJournalEntry(@1352,QUEST)~ GOTO GoGetBracersAlready
   END
 
   IF ~~ THEN BEGIN DiviningGood SAY @1206
-    IF ~~ THEN GOTO GoGetBracersAlready
+    IF ~~ THEN DO ~AddJournalEntry(@1353,QUEST)~ GOTO GoGetBracersAlready
   END
 
   IF ~~ THEN BEGIN DiviningPerfect SAY @1207
-    IF ~~ THEN GOTO GoGetBracersAlready
+    IF ~~ THEN DO ~AddJournalEntry(@1354,QUEST)~ GOTO GoGetBracersAlready
   END
 
   IF ~~ THEN BEGIN GoGetBracersAlready SAY @1208 = @1209 = @1210 = @1211
@@ -774,29 +884,29 @@ APPEND ~%tutu_var%THALAN~
   END
 
   IF ~~ THEN BEGIN CDBeginBracerQuest_mage SAY @1001
-    IF ~~ THEN REPLY @1002 DO ~SetGlobal("CDPlayerHasCalling","GLOBAL",1)~ GOTO Accepted
+    IF ~~ THEN REPLY @1002 GOTO Accepted
     IF ~~ THEN REPLY @1003 GOTO MoreInfo
-    IF ~~ THEN REPLY @1004 DO ~SetGlobal("CDBracerQuest","GLOBAL",98)~ GOTO Declined
+    IF ~~ THEN REPLY @1004 GOTO Declined
     IF ~~ THEN REPLY @1005 DO ~~ EXTERN ~%tutu_var%MELICA~ Cluckers
     IF ~~ THEN REPLY @1006 GOTO MoreInfo
   END
 
   IF ~~ THEN BEGIN CDBeginBracerQuest_notmage SAY @1320
-    IF ~~ THEN REPLY @1002 DO ~SetGlobal("CDPlayerHasCalling","GLOBAL",1)~ GOTO Accepted
+    IF ~~ THEN REPLY @1002 GOTO Accepted
     IF ~~ THEN REPLY @1003 GOTO MoreInfo
-    IF ~~ THEN REPLY @1004 DO ~SetGlobal("CDBracerQuest","GLOBAL",98)~ GOTO Declined
+    IF ~~ THEN REPLY @1004 GOTO Declined
     IF ~~ THEN REPLY @1005 DO ~~ EXTERN ~%tutu_var%MELICA~ Cluckers
     IF ~~ THEN REPLY @1006 GOTO MoreInfo
   END
 
   IF ~~ THEN BEGIN Declined SAY @1022
-    IF ~~ THEN EXIT
+    IF ~~ THEN DO ~AddJournalEntry(@1336,QUEST_DONE) SetGlobal("CDBracerQuest","GLOBAL",98)~ EXIT
   END
 
   IF ~~ THEN BEGIN MoreInfo SAY @1023 = @1024 = @1025
-    IF ~~ THEN REPLY @1027 DO ~SetGlobal("CDBracerQuest","GLOBAL",1)~ GOTO Accepted
-    IF ~~ THEN REPLY @1002 DO ~SetGlobal("CDPlayerHasCalling","GLOBAL",1)~ GOTO Accepted
-    IF ~~ THEN REPLY @1028 DO ~SetGlobal("CDBracerQuest","GLOBAL",98)~ GOTO Declined
+    IF ~~ THEN REPLY @1027 GOTO Accepted
+    IF ~~ THEN REPLY @1002 GOTO Accepted
+    IF ~~ THEN REPLY @1028 GOTO Declined
   END
   
   IF WEIGHT #-1 ~Global("CDBracerQuest","GLOBAL",2)~ THEN BEGIN QuestGivingPartI SAY @1016 = @1017
@@ -828,8 +938,10 @@ APPEND ~%tutu_var%THALAN~
   END
   
   IF ~~ THEN BEGIN OffIGo SAY @1032
-    IF ~~ THEN EXIT
+    IF ~Global("CDBlackPearls","GLOBAL",0)~  THEN DO ~AddJournalEntry(@1337,QUEST)~ EXIT
+    IF ~!Global("CDBlackPearls","GLOBAL",0)~ THEN DO ~AddJournalEntry(@1338,QUEST)~ EXIT
   END
+  
 /*  now handled as a dialogue reply in state 1
   IF WEIGHT #-1 ~GlobalGT("CDBracerQuest","GLOBAL",2)
                  GlobalLT("CDBracerQuest","GLOBAL",6)~ THEN BEGIN GemsGemsGems SAY @1033
@@ -1071,12 +1183,17 @@ APPEND ~%tutu_var%THALAN~
   END
   
   IF ~~ THEN BEGIN WheresMeli SAY @1054 = @1055
-    IF ~~ THEN REPLY @1056 GOTO OffIGoToSeeTaerom
+    IF ~~ THEN REPLY @1056 DO ~EraseJournalEntry(@1337) 
+                               EraseJournalEntry(@1338) 
+                               AddJournalEntry(@1339,QUEST)~ GOTO OffIGoToSeeTaerom
     IF ~Gender(LastTalkedToBy(),FEMALE)~ THEN REPLY @1057 DO ~SetGlobalTimer("CDMelicampReturns","GLOBAL",FOUR_DAYS)
-                                                    SetGlobal("CDBracerQuest","GLOBAL",13)~ GOTO SkipMelicamp
+                                                              SetGlobal("CDBracerQuest","GLOBAL",13)~ GOTO SkipMelicamp
     IF ~Gender(LastTalkedToBy(),MALE)~ THEN REPLY @1058 DO ~SetGlobalTimer("CDMelicampReturns","GLOBAL",FOUR_DAYS)
-                                                  SetGlobal("CDBracerQuest","GLOBAL",13)~ GOTO SkipMelicamp
-    IF ~~ THEN REPLY @1059 DO ~StartStore("%tutu_scripth%IGHHEDG",LastTalkedToBy(Myself))~ EXIT
+                                                            SetGlobal("CDBracerQuest","GLOBAL",13)~ GOTO SkipMelicamp
+    IF ~~ THEN REPLY @1059 DO ~EraseJournalEntry(@1337) 
+                               EraseJournalEntry(@1338) 
+                               AddJournalEntry(@1339,QUEST) 
+                               StartStore("%tutu_scripth%IGHHEDG",LastTalkedToBy(Myself))~ EXIT
   END
   
   IF ~~ THEN BEGIN OffIGoToSeeTaerom SAY @1060
@@ -1084,7 +1201,7 @@ APPEND ~%tutu_var%THALAN~
   END
 
   IF ~~ THEN BEGIN SkipMelicamp SAY @1099
-    IF ~~ THEN EXIT
+    IF ~~ THEN DO ~AddJournalEntry(@1340,QUEST)~ EXIT
   END
   
   IF ~~ THEN BEGIN IncantationQuestion SAY @1255 = @1256 = @1257
@@ -1161,13 +1278,13 @@ END
 BEGIN CDGRACE
 
 IF ~!GlobalGT("Chapter","GLOBAL",%tutu_chapter_2%)~ THEN BEGIN MinesNotDone SAY @1105
-  IF ~Global("CDBracerQuest","GLOBAL",7)~ THEN DO ~SetGlobal("CDBracerQuest","GLOBAL",8)~ REPLY @1106 GOTO WheresMeli
+  IF ~Global("CDBracerQuest","GLOBAL",7)~ THEN REPLY @1106 GOTO WheresMeli
   IF ~Global("CDBracerQuest","GLOBAL",8)~ THEN REPLY @1109 GOTO WheresMeli
   IF ~~ THEN REPLY @1107 GOTO Goodbye
 END
 
 IF ~GlobalGT("Chapter","GLOBAL",%tutu_chapter_2%)~ THEN BEGIN MinesDone SAY @1111
-  IF ~Global("CDBracerQuest","GLOBAL",7)~ THEN DO ~SetGlobal("CDBracerQuest","GLOBAL",8)~ REPLY @1106 GOTO WheresMeli
+  IF ~Global("CDBracerQuest","GLOBAL",7)~ THEN REPLY @1106 GOTO WheresMeli
   IF ~Global("CDBracerQuest","GLOBAL",8)~ THEN REPLY @1109 GOTO WheresMeli
   IF ~~ THEN REPLY @1107 GOTO Goodbye
 END
@@ -1177,14 +1294,22 @@ IF ~~ THEN BEGIN Goodbye SAY @1108
 END
 
 IF ~~ THEN BEGIN WheresMeli SAY @1110
-  IF ~~ THEN EXIT
+  IF ~~ THEN DO ~AddJournalEntry(@1342,QUEST) SetGlobal("CDBracerQuest","GLOBAL",8)~ EXIT
+  IF ~!Global("CDBracerQuest","GLOBAL",7)~ THEN EXIT
 END
 
 BEGIN CDMELI
 
 IF ~Global("CDSal","MYAREA",2)
     Global("CDJames","MYAREA",2)~ THEN BEGIN QuestFinished SAY @1178 = @1179
-  IF ~~ THEN DO ~GiveItemCreate("cdore",LastTalkedToBy(Myself),1,0,0)
+  IF ~~ THEN DO ~EraseJournalEntry(@1341)
+                 EraseJournalEntry(@1342)
+                 EraseJournalEntry(@1343)
+                 EraseJournalEntry(@1344)
+                 EraseJournalEntry(@1345)
+                 EraseJournalEntry(@1346)
+                 AddJournalEntry(@1347,QUEST)
+                 GiveItemCreate("cdore",LastTalkedToBy(Myself),1,0,0)
                  SetGlobal("CDBracerQuest","GLOBAL",10)
                  SetGlobal("CDMinerQuest","MYAREA",2)
                  EscapeArea()~ EXIT
@@ -1215,8 +1340,8 @@ IF ~~ THEN BEGIN MeliControl SAY @1129
 END
 
 IF ~~ THEN BEGIN QuestAccepted SAY @1130 = @1131 = @1132
-  IF ~~ THEN REPLY @1133 GOTO OffYouGo
-  IF ~~ THEN REPLY @1134 GOTO OffYouGo
+  IF ~~ THEN DO ~AddJournalEntry(@1344,QUEST)~ REPLY @1133 GOTO OffYouGo
+  IF ~~ THEN DO ~AddJournalEntry(@1344,QUEST)~ REPLY @1134 GOTO OffYouGo
 END
 
 IF ~~ THEN BEGIN OffYouGo SAY @1135
@@ -1290,13 +1415,15 @@ IF ~True()~ THEN BEGIN TalkingHeads6 SAY @1141
 END
 
 IF ~~ THEN BEGIN WrongAnswer SAY @1157 = @1158
-  IF ~~ THEN DO ~AddexperienceParty(50)
+  IF ~~ THEN DO ~AddJournalEntry(@1345,QUEST)
+                 AddexperienceParty(50)
                  SetGlobal("CDSal","MYAREA",2)
                  EscapeArea()~ EXIT
 END
 
 IF ~~ THEN BEGIN RightAnswer SAY @1159 = @1160
-  IF ~~ THEN DO ~AddexperienceParty(100)
+  IF ~~ THEN DO ~AddJournalEntry(@1345,QUEST)
+                 AddexperienceParty(100)
                  SetGlobal("CDSal","MYAREA",2)
                  EscapeArea()~ EXIT
 END
@@ -1352,13 +1479,15 @@ IF ~True()~ THEN BEGIN TalkingHeads6 SAY @1141
 END
 
 IF ~~ THEN BEGIN WrongAnswer SAY @1165 = @1166
-  IF ~~ THEN DO ~AddexperienceParty(50)
+  IF ~~ THEN DO ~AddJournalEntry(@1346,QUEST)
+                 AddexperienceParty(50)
                  SetGlobal("CDJames","MYAREA",2)
                  EscapeArea()~ EXIT
 END
 
 IF ~~ THEN BEGIN RightAnswer SAY @1165 = @1167
-  IF ~~ THEN DO ~AddexperienceParty(100)
+  IF ~~ THEN DO ~AddJournalEntry(@1346,QUEST)
+                 AddexperienceParty(100)
                  SetGlobal("CDJames","MYAREA",2)
                  EscapeArea()~ EXIT
 END

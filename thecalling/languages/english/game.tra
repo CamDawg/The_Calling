@@ -390,6 +390,135 @@ Special:  can only be removed by a 'remove curse' spell~
 @1333 = ~However, we will have to wait for Melicamp's return before we begin the divination.~
 @1334 = ~Speak of the devil and he shall appear. Let us begin.~
 
+// journal entries
+@1335 = ~Destroy the Cursed Bracers~
+@1336 = ~Destroy the Cursed Bracers
+
+Thalantyr asked for my help in destroying the bracers that cursed Melicamp, but I declined.~
+@1337 = ~Destroy the Cursed Bracers
+
+Thalantyr asked for my help in destroying the bracers that cursed Melicamp. Thalantyr has tasked us with the construction of a scrying device. While Melicamp goes to Beregost to work with Taerom, I must gather three different gems to power the device. I must pay attention and use my own discretion.~
+@1338 = ~Destroy the Cursed Bracers
+
+Thalantyr asked for my help in destroying the bracers that cursed Melicamp. Thalantyr has tasked us with the construction of a scrying device. While Melicamp goes to Beregost to work with Taerom, I must gather three gems to power the device. Thalantyr mentioned that black pearls are useful, but otherwise I must pay attention and use my own discretion.~
+@1339 = ~Destroy the Cursed Bracers
+
+I have provided Thalantyr with three gems to power the scrying device. However, Melicamp has not yet returned from visiting Taerom in Beregost, and Thalantyr has asked me to check on his progress.~
+@1340 = ~Destroy the Cursed Bracers
+
+I have provided Thalantyr with three gems to power the scrying device. Melicamp has not yet returned from visiting Taerom in Beregost, but I can't waste time to check on him. He'll return eventually.~
+@1341 = ~Destroy the Cursed Bracers
+
+Taerom didn't have the needed ore for the scrying device, so he sent Melicamp to visit his contact Grace at the Nashkel Mines. I should check on him there.~
+@1342 = ~Destroy the Cursed Bracers
+
+Grace provided Melicamp with some of the needed ore. It was not enough, so Melicamp has gone down into the mines to find more.~
+@1343 = ~Destroy the Cursed Bracers
+
+Melicamp's magic has backfired, destroying the memories of two miners. I refused to fix his mess, so he left with the miners to try and help him. I'm sure he'll eventually make his way back to Thalantyr's.~
+@1344 = ~Destroy the Cursed Bracers
+
+Melicamp's magic has backfired, damaging the memories of two miners, Sal and James. Melicamp suggests speaking with the other miners. If we can learn some details about them, we may be able to jog their memories and restore what's missing.~
+@1345 = ~Destroy the Cursed Bracers
+
+I helped the miner Sal by reminding him of his twin boys.~
+@1346 = ~Destroy the Cursed Bracers
+
+I helped the miner James by reminding him of his sweetheart in Beregost.~
+@1347 = ~Destroy the Cursed Bracers
+
+The miners have been saved, and Melicamp has given me the needed ore. While he heads back to Thalantyr I'll be taking the ore to Taerom to forge the scrying device.~
+@1348 = ~Destroy the Cursed Bracers
+
+I have given the ore to Taerom to forge the device. He says it will be ready in two days time.~
+@1349 = ~Destroy the Cursed Bracers
+
+Taerom has successfully forged the scrying device and given it to me. I should return to the High Hedge so that Thalantyr can search for the bracers.~
+@1350 = ~Destroy the Cursed Bracers
+
+Thalantyr has used the scrying device in an attempt to locate the bracers. However, my selection of gemstones was so poor that we could only narrow down their location to an area north of Firewine.~
+@1351 = ~Destroy the Cursed Bracers
+
+Thalantyr has used the scrying device in an attempt to locate the bracers. However, my selection of gemstones was poor and we could only narrow down their location to an area north of Firewine. Thalantyr says to look for a flower.~
+@1352 = ~Destroy the Cursed Bracers
+
+Thalantyr has used the scrying device in an attempt to locate the bracers. My selection of gemstones was adequate and we were able to narrow down the location to Gullykin.~
+@1353 = ~Destroy the Cursed Bracers
+
+Thalantyr has used the scrying device in an attempt to locate the bracers. My selection of gemstones was good and we were able to locate the bracers on a halfling woman living in Gullykin.~
+@1354 = ~Destroy the Cursed Bracers
+
+Thalantyr has used the scrying device in an attempt to locate the bracers. My selection of gemstones was excellent and we were able to locate the bracers on a halfling woman named Iris Cotton, living in Gullykin.~
+@1355 = ~Destroy the Cursed Bracers
+
+I have located the cursed bracers at last! We met Largo Cotton in Gullykin and discovered his wife Iris has been transformed into a squirrel. Largo wants to see if the local priest, Alvanhendar, can help before traveling to the High Hedge. I should meet them at the local temple here in Gullykin.~
+@1356 = ~Destroy the Cursed Bracers
+
+I have located the cursed bracers at last! We met Largo Cotton in Gullykin and discovered his wife Iris has been transformed into a squirrel. I have convinced Largo to travel to High Hedge and speak with Thalantyr. I should travel there as well.~
+@1357 = ~Destroy the Cursed Bracers
+
+Unfortunately the local cleric Alvanhendar was not able to help Iris Cotton with the curse from the bracers. The Cottons are traveling to meet Thalantyr at High Hedge. I should travel there as well.~
+@1358 = ~Destroy the Cursed Bracers
+
+Thalantyr, Melicamp, and I have managed to free Iris Cotton from the cursed bracers. I'm afraid I didn't get my part of the incantation correct and Iris was hurt and the bracers are gone.
+
+Thalantyr has thanked me for my efforts, and my part in this is done. Thalantyr and Melicamp will try to find the bracers without me.~
+@1359 = ~Destroy the Cursed Bracers
+
+Thalantyr, Melicamp, and I have managed to free Iris Cotton from the cursed bracers. I flubbed some of the incantation, but Iris has come through with only some discomfort, but the bracers are gone.
+
+Thalantyr has thanked me for my efforts, and my part in this is done. Thalantyr and Melicamp will try to find the bracers without me.~
+@1360 = ~Destroy the Cursed Bracers
+
+Thalantyr, Melicamp, and I have managed to free Iris Cotton from the cursed bracers. The incantation was good enough that Iris came through with no side effects.
+
+I should take the bracers, alongside a special powder provided by Thalantyr, to Taerom in Beregost. The powder will allow his forge to burn hot enough to destroy the bracers once and for all.~
+@1361 = ~Destroy the Cursed Bracers
+
+Thalantyr, Melicamp, and I have managed to free Iris Cotton from the cursed bracers with a perfect incantation.
+
+I should take the bracers, alongside a special powder provided by Thalantyr, to Taerom in Beregost. The powder will allow his forge to burn hot enough to destroy the bracers once and for all.~
+@1362 = ~Destroy the Cursed Bracers
+
+The bracers are destroyed at last, reduced to slag in the magically-enhanced heat of Taerom's forge. Taerom offered to try and forge the leftovers into a new magical item, but coming from cursed stock, I did not want to risk it.~
+@1363 = ~Destroy the Cursed Bracers
+
+The bracers are destroyed at last. The magically-enhanced heat of Taerom's forge destroyed them, and Taerom was able to forge a new item out of its remains. Whether the item retains some of their original cursed energy, or are instead a beneficial item, remains to be seen.~
+
+
+/*
+*1 quest accepted, promps meli cutscene
+*2 after cutscene
+*3 in thalantyr's post-cutscene dlg
+*4 one gem returned
+*5 two gems in
+*6 all three gems, go see taerom
+7 taerom met, go see grace at mines
+8 grace spoken with
+9 meli spawned in nashkel
+10 miners fixed, meli returning, go speak to taerom again
+11 device in progress
+*12 device ready
+13 melicamp-nashkel stuff skipped
+14 melicamp returns device
+15 thalantyr does divination
+*16 divination cutscene done
+17 go get bracers from halflings
+18 halfling cutscene, dialogue; goes to 19 or 80
+*19 halflings sent to high hedge
+20 incantation complete, go to cutscene
+*21 cutscene complete
+22 bracers removed badly, quest over
+23 bracers removed, take 'em to taerom
+24 spoken to taerom, start cutscene
+25 cutscene end, last taerom dialogue
+26 quest over, completed successfully
+
+80 cottons move to the local temple and try to get Alvanhendar to help - he can't, routed back to 19
+
+98 refused quest
+99 melicamp gone on quest instead
+*/
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////                                                  \\\\\
